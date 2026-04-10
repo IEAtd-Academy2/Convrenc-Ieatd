@@ -1,157 +1,566 @@
 <!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>المؤتمر العربي الخامس للصحة النفسية للأطفال والمراهقين</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"><style>  
 :root {    
-    --navy: #FAF9F6;    /* أبيض كريمي هادئ */
-    --navy2: #F4F1E9;   /* درجة كريمي أغمق للأقسام */
+    --navy: #FAF9F6;    /* أبيض كريمي للخلفية الأساسية */
+    --navy2: #F4F1E9;   /* كريمي أغمق لتمييز الأقسام */
     --navy3: #EAE5D5;   
-    --gold: #8B0000;    /* أحمر داكن للأزرار */
+    --gold: #8B0000;    /* أحمر داكن للأزرار واللمسات */
     --gold2: #000000;   /* أسود للأزرار */
-    --gold3: #A52A2A;   /* أحمر طوبي */
-    --cream: #1A1A1A;   /* نصوص داكنة للوضوح */
-    --text-light: #2D2D2D; 
-    --text-muted: #5A5A5A; 
+    --gold3: #A52A2A;   
+    --cream: #1A1A1A;   /* نصوص العناوين داكنة */
+    --text-light: #2D2D2D; /* نصوص عادية */
+    --text-muted: #5A5A5A; /* نصوص فرعية */
 }  
 * { margin: 0; padding: 0; box-sizing: border-box; }  
 html { scroll-behavior: smooth; }  
 body { font-family: 'Cairo', sans-serif; background: var(--navy); color: var(--text-light); direction: rtl; overflow-x: hidden; }  
 
-/* Navigation */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.5rem 4rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.4s ease; }  
-nav.scrolled { background: rgba(250, 249, 246, 0.98); backdrop-filter: blur(20px); padding: 1rem 4rem; border-bottom: 1px solid rgba(139, 0, 0, 0.08); }  
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 4rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.4s ease; }  
+nav.scrolled { background: rgba(250, 249, 246, 0.98); backdrop-filter: blur(20px); padding: 0.8rem 4rem; border-bottom: 1px solid rgba(139, 0, 0, 0.08); }  
 .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--gold); }  
-.nav-cta { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; padding: 0.7rem 2rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }  
+.nav-cta { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; padding: 0.6rem 1.8rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }  
+.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(139, 0, 0, 0.3); }  
 
-/* Hero Section - Minimalist Spacing */
 #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 8rem 2rem 5rem; }  
-.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 40%, rgba(139, 0, 0, 0.04) 0%, transparent 60%); }    
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 40%, rgba(139, 0, 0, 0.04) 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, rgba(244, 241, 233, 0.5) 0%, var(--navy) 70%); }    
+
+.orb { position: absolute; border-radius: 50%; filter: blur(60px); animation: floatOrb 8s ease-in-out infinite; pointer-events: none; }  
+.orb1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(139, 0, 0, 0.08) 0%, transparent 70%); top: -100px; right: -100px; animation-delay: 0s; }  
+.orb2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(0, 0, 0, 0.04) 0%, transparent 70%); bottom: 0; left: 10%; animation-delay: -3s; }  
+.orb3 { width: 250px; height: 250px; background: radial-gradient(circle, rgba(139, 0, 0, 0.05) 0%, transparent 70%); top: 40%; left: 30%; animation-delay: -5s; }  
+@keyframes floatOrb { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }  
+
+.particles { position: absolute; inset: 0; pointer-events: none; }  
+.particle { position: absolute; width: 3px; height: 3px; background: var(--gold); border-radius: 50%; opacity: 0; animation: rise linear infinite; }  
+@keyframes rise { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.3; } 100% { transform: translateY(-100px) scale(1.5); opacity: 0; } }  
+
 .hero-content { position: relative; z-index: 2; text-align: center; max-width: 850px; display: flex; flex-direction: column; align-items: center; }  
+.conference-edition { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.15); padding: 0.5rem 1.8rem; border-radius: 50px; font-size: 0.95rem; color: var(--gold); margin-bottom: 2.5rem; animation: fadeInDown 0.8s ease forwards; opacity: 0; }  
+.conference-edition::before { content: ''; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }  
+@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } }  
 
-.conference-edition { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.15); padding: 0.5rem 1.8rem; border-radius: 50px; font-size: 0.95rem; color: var(--gold); margin-bottom: 2.5rem; }
-.conference-edition::before { content: ''; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; }
+.hero-title { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 900; line-height: 1.2; margin-bottom: 1.5rem; animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; color: var(--gold2); }  
+.hero-title span { background: linear-gradient(135deg, var(--gold), var(--gold3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }  
+.hero-subtitle { font-family: 'Amiri', serif; font-size: clamp(1.2rem, 2.5vw, 1.8rem); color: var(--text-muted); margin-bottom: 3.5rem; animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }  
 
-.hero-title { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 900; line-height: 1.2; margin-bottom: 1.5rem; color: var(--gold2); }  
-.hero-title span { background: linear-gradient(135deg, var(--gold), var(--gold3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }  
-.hero-subtitle { font-family: 'Amiri', serif; font-size: clamp(1.2rem, 2.5vw, 1.8rem); color: var(--text-muted); margin-bottom: 4rem; }  
-
-.hero-date-location { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; width: 100%; }  
-.hero-badge { display: flex; align-items: center; gap: 0.8rem; background: #fff; border: 1px solid rgba(0, 0, 0, 0.06); padding: 1.2rem 2rem; border-radius: 18px; font-size: 1rem; font-weight: 600; box-shadow: 0 4px 20px rgba(0,0,0,0.02); min-width: 280px; }  
+.hero-date-location { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 3.5rem; flex-wrap: wrap; width: 100%; animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }  
+.hero-badge { display: flex; align-items: center; gap: 0.8rem; background: #fff; border: 1px solid rgba(0, 0, 0, 0.06); padding: 1.2rem 2rem; border-radius: 18px; font-size: 1rem; font-weight: 600; box-shadow: 0 4px 20px rgba(0,0,0,0.02); min-width: 260px; text-align: right; }  
 .hero-badge strong { color: var(--gold); display: block; font-size: 1.1rem; }  
 
-.sponsor-box { background: #fff; border: 1px solid rgba(139, 0, 0, 0.1); padding: 1.2rem 2.5rem; border-radius: 18px; margin-bottom: 4rem; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
-.sponsor-box small { color: var(--text-muted); display: block; margin-bottom: 0.5rem; font-size: 0.85rem; }
-
-.hero-cta-group { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }  
-.btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; padding: 1.1rem 3.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; text-decoration: none; box-shadow: 0 10px 30px rgba(139, 0, 0, 0.2); }  
+.hero-cta-group { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0; }  
+.btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; padding: 1.1rem 3.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; box-shadow: 0 10px 30px rgba(139, 0, 0, 0.2); }  
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }  
+.btn-secondary { background: transparent; color: var(--gold2); border: 2px solid var(--gold2); padding: 1.1rem 3.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }  
+.btn-secondary:hover { background: var(--gold2); color: #fff; transform: translateY(-3px); }  
 
-/* Sections Commons */
+.scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.3rem; opacity: 0.5; animation: bounce 2s ease-in-out infinite; }  
+.scroll-indicator span { font-size: 0.75rem; color: var(--gold); letter-spacing: 2px; }  
+.scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); }  
+@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }  
+
+#stats { padding: 5rem 2rem; background: linear-gradient(to bottom, var(--navy), var(--navy2)); }  
+.stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 2rem; }  
+.stat-card { text-align: center; padding: 2.5rem 1.5rem; border-radius: 24px; border: 1px solid rgba(0,0,0,0.04); background: #fff; transition: all 0.4s ease; position: relative; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.02); }  
+.stat-card:hover { transform: translateY(-5px); border-color: var(--gold); }  
+.stat-number { font-size: 3rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }  
+.stat-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }  
+
 section { padding: 7rem 2rem; }  
-.section-header { text-align: center; margin-bottom: 4rem; }
-.section-title { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; color: var(--gold2); margin-bottom: 1rem; }
-.section-title span { color: var(--gold); }
-.gold-divider { width: 60px; height: 3px; background: var(--gold); margin: 1.5rem auto; border-radius: 2px; }
+.section-tag { display: inline-block; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.15); color: var(--gold); padding: 0.3rem 1.2rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1.5rem; }  
+.section-title { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 800; line-height: 1.3; margin-bottom: 1.5rem; color: var(--gold2); }  
+.section-title span { color: var(--gold); }  
+.section-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 600px; line-height: 1.8; }  
+.section-header { text-align: center; margin-bottom: 4rem; }  
+.section-header .section-desc { margin: 0 auto; }  
+.gold-divider { width: 60px; height: 3px; background: linear-gradient(to right, var(--gold), var(--gold2)); border-radius: 2px; margin: 1.5rem auto; }  
 
-/* Stats */
-#stats { padding: 5rem 2rem; background: var(--navy2); }  
-.stats-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2.5rem; }  
-.stat-card { text-align: center; padding: 3rem 1.5rem; border-radius: 24px; background: #fff; border: 1px solid rgba(0,0,0,0.04); transition: 0.3s; }  
-.stat-card:hover { transform: translateY(-5px); border-color: var(--gold); }
-.stat-number { font-size: 3.5rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.8rem; }  
+#why-us { background: var(--navy2); position: relative; overflow: hidden; }  
+.why-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }  
+.why-card { padding: 2.5rem; border-radius: 24px; border: 1px solid rgba(0,0,0,0.05); background: #fff; position: relative; overflow: hidden; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }  
+.why-card.visible { opacity: 1; transform: translateY(0); }  
+.why-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }  
+.why-card-icon { width: 60px; height: 60px; border-radius: 16px; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1.5rem; }  
+.why-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.8rem; }  
+.why-card p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.8; }  
+.card-number { position: absolute; top: 1rem; left: 1.5rem; font-size: 4rem; font-weight: 900; color: rgba(139, 0, 0, 0.03); line-height: 1; font-family: 'Amiri', serif; }  
 
-/* Why Us */
-#why-us { background: var(--navy); }
-.why-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-.why-card { padding: 2.5rem; border-radius: 24px; background: #fff; border: 1px solid rgba(0,0,0,0.05); transition: 0.4s; }
-.why-card:hover { border-color: var(--gold); transform: translateY(-5px); }
-.why-card-icon { font-size: 2rem; margin-bottom: 1.5rem; }
-.why-card h3 { color: var(--gold2); margin-bottom: 1rem; font-size: 1.3rem; }
+#topics { background: var(--navy); }  
+.topics-wrapper { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }  
+.topic-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; border-radius: 18px; border: 1px solid rgba(0,0,0,0.05); background: #fff; transition: all 0.3s ease; opacity: 0; transform: translateX(20px); }  
+.topic-item.visible { opacity: 1; transform: translateX(0); }  
+.topic-item:hover { border-color: var(--gold); background: rgba(139, 0, 0, 0.02); }  
+.topic-dot { min-width: 10px; height: 10px; border-radius: 50%; background: var(--gold); margin-top: 5px; }  
+.topic-item span { font-size: 0.95rem; font-weight: 600; color: var(--text-light); line-height: 1.6; }  
 
-/* Pricing */
-#pricing { background: var(--navy2); }
-.pricing-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-.price-card { padding: 3rem 2.5rem; border-radius: 28px; background: #fff; border: 1px solid rgba(0,0,0,0.05); text-align: center; position: relative; }
-.price-card.featured { border: 2px solid var(--gold); box-shadow: 0 20px 50px rgba(139, 0, 0, 0.1); }
-.price-amount { font-size: 3rem; font-weight: 900; color: var(--gold); margin: 1.5rem 0; }
+#speakers { background: var(--navy2); }  
+.speakers-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }  
+.speaker-card { padding: 2.5rem 1.5rem; border-radius: 24px; border: 1px solid rgba(0,0,0,0.05); background: #fff; text-align: center; transition: all 0.4s ease; opacity: 0; transform: scale(0.95); }  
+.speaker-card.visible { opacity: 1; transform: scale(1); }  
+.speaker-card:hover { border-color: var(--gold); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }  
+.speaker-avatar { width: 90px; height: 90px; border-radius: 50%; background: var(--navy3); border: 2px solid rgba(139, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.2rem; }  
+.speaker-name { font-size: 1.05rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.4rem; }  
+.speaker-title { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 0.4rem; }  
+.speaker-country { font-size: 0.85rem; color: var(--text-muted); }  
 
-footer { background: var(--navy2); padding: 5rem 2rem; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
-.footer-logo { font-size: 1.5rem; font-weight: 800; color: var(--gold); margin-bottom: 1rem; }
-.footer-copy { font-size: 0.9rem; color: var(--text-muted); margin-top: 2.5rem; }
+#agenda { background: var(--navy); }  
+.agenda-wrapper { max-width: 800px; margin: 0 auto; }  
+.agenda-day { margin-bottom: 2.5rem; }  
+.day-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem; }  
+.day-tag { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.9rem; font-weight: 700; }  
+.day-date { font-size: 0.9rem; color: var(--text-muted); }  
+.agenda-item { display: flex; gap: 1.2rem; padding: 1.5rem; border-radius: 16px; border: 1px solid rgba(0,0,0,0.05); background: #fff; margin-bottom: 1rem; transition: all 0.3s ease; opacity: 0; transform: translateX(-20px); }  
+.agenda-item.visible { opacity: 1; transform: translateX(0); }  
+.agenda-item:hover { border-color: var(--gold); background: rgba(139, 0, 0, 0.02); }  
+.agenda-time { min-width: 100px; font-size: 0.85rem; color: var(--gold); font-weight: 600; padding-top: 3px; }  
+.agenda-info h4 { font-size: 1rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.3rem; }  
+.agenda-info p { font-size: 0.85rem; color: var(--text-muted); }  
+
+#testimonials { padding: 5rem 2rem; background: rgba(139, 0, 0, 0.02); border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); text-align: center; }  
+.quote-text { font-family: 'Amiri', serif; font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--gold2); line-height: 1.9; max-width: 800px; margin: 0 auto 1.5rem; }  
+.quote-author { color: var(--gold); font-weight: 600; font-size: 0.95rem; }  
+
+#pricing { background: var(--navy2); }  
+.pricing-tabs { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 3rem; flex-wrap: wrap; }  
+.pricing-tab { padding: 0.8rem 1.8rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; border: 1px solid var(--gold); background: transparent; color: var(--gold); transition: all 0.3s ease; }  
+.pricing-tab.active { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border-color: transparent; }  
+.pricing-tab:hover:not(.active) { background: rgba(139, 0, 0, 0.05); }
+.pricing-panel { display: none; }  
+.pricing-panel.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; align-items: start; }  
+.price-card { padding: 3rem 2.5rem; border-radius: 28px; border: 1px solid rgba(0,0,0,0.05); background: #fff; position: relative; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); box-shadow: 0 10px 30px rgba(0,0,0,0.02); }  
+.price-card.visible { opacity: 1; transform: translateY(0); }  
+.price-card.featured { border: 2px solid var(--gold); box-shadow: 0 20px 50px rgba(139, 0, 0, 0.08); }  
+.price-card:hover:not(.featured) { border-color: var(--gold); transform: translateY(-5px); }  
+.featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; padding: 0.4rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 800; white-space: nowrap; }  
+.price-card-title { font-size: 1.1rem; font-weight: 700; color: var(--gold2); margin-bottom: 1.5rem; }  
+.price-amount { font-size: 3rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.5rem; }  
+.price-currency { font-size: 1.1rem; font-weight: 600; }  
+.price-desc { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem; }  
+.price-features { list-style: none; margin-bottom: 2.5rem; }  
+.price-features li { display: flex; align-items: center; gap: 0.8rem; padding: 0.6rem 0; font-size: 0.9rem; color: var(--text-light); border-bottom: 1px solid rgba(0,0,0,0.04); }  
+.price-features li::before { content: '✓'; color: var(--gold); font-weight: 700; }  
+.price-btn { width: 100%; padding: 1rem; border-radius: 14px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; border: none; }  
+.price-btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; }  
+.price-btn-gold:hover { box-shadow: 0 10px 30px rgba(139, 0, 0, 0.3); transform: translateY(-2px); }  
+.price-btn-outline { background: transparent; color: var(--gold2); border: 1px solid var(--gold2); }  
+.price-btn-outline:hover { background: var(--gold2); color: #fff; }  
+
+#register { background: var(--navy); }  
+.form-wrapper { max-width: 800px; margin: 0 auto; background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 28px; padding: 3rem; position: relative; box-shadow: 0 15px 50px rgba(0,0,0,0.03); }  
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }  
+@media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } .form-wrapper { padding: 2rem 1.5rem; } }  
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }  
+.form-group.full { grid-column: 1 / -1; }  
+.form-group label { font-size: 0.95rem; font-weight: 600; color: var(--cream); }  
+.form-group label span { color: var(--gold); }  
+.form-group input, .form-group select, .form-group textarea { background: var(--navy); border: 1px solid rgba(0,0,0,0.1); border-radius: 14px; padding: 1rem 1.2rem; font-family: 'Cairo', sans-serif; font-size: 1rem; color: var(--cream); transition: all 0.3s ease; outline: none; width: 100%; }  
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.05); }  
+.form-group textarea { resize: vertical; min-height: 120px; }  
+.form-submit { width: 100%; padding: 1.2rem; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; border-radius: 14px; font-family: 'Cairo', sans-serif; font-size: 1.15rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; margin-top: 1rem; }  
+.form-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }  
+
+.embed-wrapper { max-width: 800px; margin: 0 auto; background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 28px; padding: 1rem; min-height: 400px; box-shadow: 0 15px 50px rgba(0,0,0,0.03); }  
+.embed-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px; gap: 1rem; text-align: center; padding: 3rem; }  
+.embed-placeholder .embed-icon { font-size: 3rem; opacity: 0.5; color: var(--gold); }  
+.embed-placeholder p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }  
+.embed-placeholder code { background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.1); color: var(--gold); padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.85rem; direction: ltr; }  
+
+#prev-editions { background: var(--navy2); }  
+.editions-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }  
+.edition-card { border-radius: 24px; border: 1px solid rgba(0,0,0,0.05); background: #fff; overflow: hidden; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }  
+.edition-card.visible { opacity: 1; transform: translateY(0); }  
+.edition-card:hover { border-color: var(--gold); transform: translateY(-6px); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }  
+.edition-header { padding: 2rem 2rem 1.5rem; position: relative; }  
+.edition-num { font-size: 4.5rem; font-weight: 900; color: rgba(139, 0, 0, 0.03); line-height: 1; font-family: 'Amiri', serif; position: absolute; top: 1rem; left: 1.5rem; }  
+.edition-badge { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.8rem; font-weight: 800; margin-bottom: 1rem; }  
+.edition-title { font-size: 1.1rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.5rem; }  
+.edition-date { font-size: 0.85rem; color: var(--text-muted); }  
+.edition-body { padding: 0 2rem 2rem; }  
+.edition-stats { display: flex; gap: 1.5rem; margin-bottom: 1.5rem; }  
+.edition-stat { text-align: center; }  
+.edition-stat strong { display: block; font-size: 1.4rem; font-weight: 900; color: var(--gold); }  
+.edition-stat span { font-size: 0.8rem; color: var(--text-muted); }  
+.edition-link { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.1); color: var(--gold); padding: 0.7rem 1.5rem; border-radius: 50px; font-size: 0.9rem; font-weight: 700; text-decoration: none; transition: all 0.3s ease; width: 100%; justify-content: center; }  
+.edition-link:hover { background: var(--gold); color: #fff; }  
+
+footer { background: var(--navy2); border-top: 1px solid rgba(0,0,0,0.05); padding: 4rem 2rem; text-align: center; }  
+.footer-logo { font-size: 1.4rem; font-weight: 800; color: var(--gold); margin-bottom: 0.8rem; }  
+.footer-tagline { font-family: 'Amiri', serif; font-size: 1.1rem; color: var(--text-muted); margin-bottom: 2rem; }  
+.footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; flex-wrap: wrap; }  
+.footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease; font-weight: 600; }  
+.footer-links a:hover { color: var(--gold); }  
+.footer-copy { font-size: 0.85rem; color: var(--text-muted); opacity: 0.8; }  
+
+@keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }  
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }  
 </style></head><body>
 
 <nav id="navbar">  
-    <div class="nav-logo">🧠 أكاديمية النخبة الدولية</div>  
-    <a href="#register" class="nav-cta">سجّل الآن</a>
+  <div class="nav-logo">🧠 أكاديمية النخبة الدولية</div>  
+  <a href="#register" class="nav-cta">سجّل الآن</a>
 </nav>
 
 <section id="hero">  
   <div class="hero-bg"></div>    
+  <div class="orb orb1"></div>  
+  <div class="orb orb2"></div>  
+  <div class="orb orb3"></div>  
+  <div class="particles" id="particles"></div>  
   <div class="hero-content">    
     <div class="conference-edition">المؤتمر العربي الخامس — 5th Arab Conference</div>    
     <h1 class="hero-title">الصحة النفسية<br><span>للأطفال والمراهقين</span></h1>    
     <p class="hero-subtitle">تمكين الوعي وصناعة المستقبل في عالم متغير</p>    
-    
     <div class="hero-date-location">      
-      <div class="hero-badge">📅 <div><strong>15 – 17 مايو 2026</strong><small>ثلاثة أيام علمية حافلة</small></div></div>      
-      <div class="hero-badge">📍 <div><strong>القاهرة، مصر</strong><small>حضور مباشر</small></div></div>     
+      <div class="hero-badge">📅 <div><strong>15 – 17 مايو 2026</strong><br><small>ثلاثة أيام علمية حافلة</small></div></div>      
+      <div class="hero-badge">📍 <div><strong>القاهرة، مصر</strong><br><small>حضوري</small></div></div>     
+      <div class="hero-badge">🎓 <div><strong>برعاية وتنظيم</strong><br><small>أكاديمية النخبة الدولية × أكاديمية الخبراء الدولية</small></div></div>    
     </div>    
-
-    <div class="sponsor-box">
-        <small>برعاية وتنظيم</small>
-        <strong>أكاديمية النخبة الدولية × أكاديمية الخبراء الدولية</strong>
-    </div>
-
     <div class="hero-cta-group">      
       <a href="#register" class="btn-primary">🔖 احجز مقعدك الآن</a>      
+      <a href="#topics" class="btn-secondary">استعرض المحاور</a>    
     </div>  
   </div>  
+  <div class="scroll-indicator">    
+    <span>اكتشف</span>    
+    <div class="scroll-line"></div>  
+  </div>
 </section>
 
 <section id="stats">  
   <div class="stats-grid">    
-    <div class="stat-card"><div class="stat-number">500+</div><div class="stat-label">متخصص ومشارك</div></div>    
-    <div class="stat-card"><div class="stat-number">18</div><div class="stat-label">متحدث دولي ومحلي</div></div>    
-    <div class="stat-card"><div class="stat-number">12</div><div class="stat-label">ورشة عمل تخصصية</div></div>    
-    <div class="stat-card"><div class="stat-number">14</div><div class="stat-label">دولة عربية مشاركة</div></div>  
+    <div class="stat-card"><div class="stat-number"><span class="count-up" data-target="500">0</span>+</div><div class="stat-label">متخصص ومشارك</div></div>    
+    <div class="stat-card"><div class="stat-number"><span class="count-up" data-target="18">0</span></div><div class="stat-label">متحدث دولي ومحلي</div></div>    
+    <div class="stat-card"><div class="stat-number"><span class="count-up" data-target="12">0</span></div><div class="stat-label">ورشة عمل تخصصية</div></div>    
+    <div class="stat-card"><div class="stat-number"><span class="count-up" data-target="5">0</span></div><div class="stat-label">دورات ناجحة متتالية</div></div>    
+    <div class="stat-card"><div class="stat-number"><span class="count-up" data-target="14">0</span></div><div class="stat-label">دولة عربية مشاركة</div></div>  
   </div>
 </section>
 
-<section id="why-us">
-  <div class="section-header">
-    <div class="section-tag">لماذا نحن؟</div>
-    <h2 class="section-title">مسيرة <span>خمس سنوات</span> من التميز</h2>
-    <div class="gold-divider"></div>
-  </div>
-  <div class="why-grid">
-    <div class="why-card"><div class="why-card-icon">🏆</div><h3>المرجع الأول عربياً</h3><p>المؤتمر الوحيد المتخصص حصرياً في الصحة النفسية للأجيال القادمة منذ خمس سنوات متواصلة.</p></div>
-    <div class="why-card"><div class="why-card-icon">🧪</div><h3>محتوى علمي محكّم</h3><p>يخضع كافة المحتوى للجنة علمية دولية تضم نخبة من الأكاديميين والمعالجين.</p></div>
-    <div class="why-card"><div class="why-card-icon">🌍</div><h3>شبكة تواصل دولية</h3><p>فرصة فريدة لبناء علاقات مهنية مع متخصصين من أكثر من 14 دولة عربية.</p></div>
+<section id="why-us">  
+  <div class="section-header">    
+    <div class="section-tag">لماذا نحن؟</div>    
+    <h2 class="section-title">عضلاتنا الأكاديمية بتتكلم<br><span>عن نفسها</span></h2>    
+    <div class="gold-divider"></div>    
+    <p class="section-desc">خمس سنوات من التميز في بناء أكبر تجمع عربي متخصص في الصحة النفسية للأجيال القادمة</p>  
+  </div>  
+  <div class="why-grid">    
+    <div class="why-card"><div class="card-number">01</div><div class="why-card-icon">🏆</div><h3>المرجع الأول عربياً</h3><p>المؤتمر العربي الوحيد المتخصص حصرياً في الصحة النفسية للأطفال والمراهقين منذ خمس سنوات متواصلة.</p></div>    
+    <div class="why-card"><div class="card-number">02</div><div class="why-card-icon">🧪</div><h3>محتوى علمي محكّم</h3><p>كل محتوى المؤتمر يمر بلجنة علمية دولية من أبرز الأكاديميين والمعالجين النفسيين في العالم العربي وأوروبا.</p></div>    
+    <div class="why-card"><div class="card-number">03</div><div class="why-card-icon">🌍</div><h3>شبكة تواصل دولية</h3><p>أكثر من 14 دولة عربية تشارك في كل دورة. فرصتك لبناء شبكة علاقات مهنية تستمر طوال مسيرتك.</p></div>    
+    <div class="why-card"><div class="card-number">04</div><div class="why-card-icon">📜</div><h3>شهادات معتمدة دولياً</h3><p>تحصل على شهادات حضور معتمدة وساعات تدريبية CPD/CME معترف بها في أكثر من 10 دول.</p></div>    
+    <div class="why-card"><div class="card-number">05</div><div class="why-card-icon">🔬</div><h3>ورش عمل تطبيقية</h3><p>12 ورشة عمل تطبيقية عملية تتدرب فيها على أحدث الأدوات والتقنيات العلاجية المستخدمة عالمياً.</p></div>    
+    <div class="why-card"><div class="card-number">06</div><div class="why-card-icon">💎</div><h3>تجربة استثنائية</h3><p>بيئة احترافية راقية وتنظيم على أعلى مستوى يجعل تجربتك لا تُنسى علمياً واجتماعياً.</p></div>  
   </div>
 </section>
 
-<section id="pricing">
-  <div class="section-header">
-    <h2 class="section-title">رسوم <span>الاشتراك</span></h2>
-    <div class="gold-divider"></div>
+<section id="topics">  
+  <div class="section-header">    
+    <div class="section-tag">محاور المؤتمر</div>    
+    <h2 class="section-title">المحاور العلمية <span>الستة</span></h2>    
+    <div class="gold-divider"></div>    
+    <p class="section-desc">ستة محاور علمية شاملة تغطي أحدث التطورات في مجال الصحة النفسية للأطفال والمراهقين</p>  
+  </div>  
+  <div class="topics-wrapper">    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الأول:</strong> الابتكار في الممارسة الإكلينيكية — من التشخيص إلى التمكين النفسي</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الثاني:</strong> عصر الذكاء الاصطناعي وتأثيره على الأطفال والمراهقين — الفرص المعرفية مقابل مخاطر التنميط والعزلة</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الثالث:</strong> الحروب والصراعات وتأثيرها على الصحة النفسية — النمو ما بعد الصدمة</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الرابع:</strong> الصحة النفسية لطلاب المدارس — استراتيجيات بناء المرونة النفسية وجودة الحياة في العصر الرقمي</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الخامس:</strong> تحديات التربية في عالم مفتوح — دور الأسرة في عصر العولمة والانفتاح</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور السادس:</strong> علم نفس التدريب التوجيهي (الكوتشينج) وعلم النفس الإيجابي — صناعة مهارات المستقبل</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>الضوابط المهنية والأخلاقية في التعامل مع القاصرين والحفاظ على السرية والأمان</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>العلاجات التعبيرية (الفنون) واللعب كأدوات تشخيصية وعلاجية</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>تأثير الذكاء الاصطناعي على صورة الجسد وتقدير الذات لدى المراهقين</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>التعلق العاطفي بالآلة (Machine Attachment) وأثره على النمو العاطفي والاجتماعي</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>استراتيجيات الدعم النفسي للمعلمين لمواجهة الاحتراق الوظيفي</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>مقاربات حديثة في التعامل مع الإدمان الإلكتروني وقلق الانفصال الرقمي (FOMO)</span></div>  
   </div>
-  <div class="pricing-grid">
-    <div class="price-card featured">
-      <div class="price-card-title">الحضور المباشر (للمصريين)</div>
-      <div class="price-amount">2,350 <small>ج.م</small></div>
-      <button class="btn-primary" style="width:100%">سجّل الآن</button>
-    </div>
-    <div class="price-card">
-      <div class="price-card-title">الحضور أونلاين (للمصريين)</div>
-      <div class="price-amount">1,300 <small>ج.م</small></div>
-      <button class="btn-primary" style="width:100%; opacity:0.8">سجّل الآن</button>
-    </div>
+</section>
+
+<section id="speakers">  
+  <div class="section-header">    
+    <div class="section-tag">المتحدثون</div>    
+    <h2 class="section-title">نخبة من <span>أبرز الخبراء</span></h2>    
+    <div class="gold-divider"></div>    
+    <p class="section-desc">متحدثون دوليون ومحليون من أعلى الكفاءات في مجال الصحة النفسية</p>  
+  </div>  
+  <div class="speakers-grid">    
+    <div class="speaker-card"><div class="speaker-avatar">👨‍⚕️</div><div class="speaker-name">د. أحمد محمد السعيد</div><div class="speaker-title">أستاذ الطب النفسي للأطفال</div><div class="speaker-country">🇪🇬 مصر</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👩‍⚕️</div><div class="speaker-name">د. نورة العمري</div><div class="speaker-title">رئيس قسم طب نفسي الطفل</div><div class="speaker-country">🇸🇦 المملكة العربية السعودية</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👨‍🔬</div><div class="speaker-name">Prof. James Carter</div><div class="speaker-title">Child Psychology Expert</div><div class="speaker-country">🇬🇧 المملكة المتحدة</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👩‍🏫</div><div class="speaker-name">د. ليلى حداد</div><div class="speaker-title">متخصصة علاج الصدمات</div><div class="speaker-country">🇱🇧 لبنان</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">🧑‍⚕️</div><div class="speaker-name">د. محمد الرشيدي</div><div class="speaker-title">خبير اضطرابات النمو</div><div class="speaker-country">🇰🇼 الكويت</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👩‍🔬</div><div class="speaker-name">Dr. Sarah Mitchell</div><div class="speaker-title">Adolescent Mental Health</div><div class="speaker-country">🇺🇸 الولايات المتحدة</div></div>  
+  </div>
+</section>
+
+<section id="agenda">  
+  <div class="section-header">    
+    <div class="section-tag">البرنامج</div>    
+    <h2 class="section-title">برنامج <span>المؤتمر</span></h2>    
+    <div class="gold-divider"></div>  
+  </div>  
+  <div class="agenda-wrapper">    
+    <div class="agenda-day">      
+      <div class="day-header"><span class="day-tag">اليوم الأول</span><span class="day-date">السبت 15 نوفمبر 2025</span></div>      
+      <div class="agenda-item"><div class="agenda-time">9:00 – 10:00</div><div class="agenda-info"><h4>حفل الافتتاح الرسمي</h4><p>كلمة الرئيس الشرفي وتكريم الرواد</p></div></div>      
+      <div class="agenda-item"><div class="agenda-time">10:30 – 12:30</div><div class="agenda-info"><h4>الجلسة العلمية الأولى</h4><p>اضطرابات القلق والاكتئاب لدى الأطفال</p></div></div>      
+      <div class="agenda-item"><div class="agenda-time">14:00 – 16:30</div><div class="agenda-info"><h4>الورش التطبيقية — الدفعة الأولى</h4><p>4 ورش متوازية — التسجيل المسبق مطلوب</p></div></div>    
+    </div>    
+    <div class="agenda-day">      
+      <div class="day-header"><span class="day-tag">اليوم الثاني</span><span class="day-date">الأحد 16 نوفمبر 2025</span></div>      
+      <div class="agenda-item"><div class="agenda-time">9:00 – 11:00</div><div class="agenda-info"><h4>المحاضرة الرئيسية الدولية</h4><p>الذكاء الاصطناعي ومستقبل الصحة النفسية</p></div></div>      
+      <div class="agenda-item"><div class="agenda-time">11:30 – 13:30</div><div class="agenda-info"><h4>الجلسة العلمية الثانية</h4><p>التوحد والاضطرابات النمائية — أحدث البروتوكولات</p></div></div>      
+      <div class="agenda-item"><div class="agenda-time">15:00 – 17:30</div><div class="agenda-info"><h4>الورش التطبيقية — الدفعة الثانية</h4><p>4 ورش تشمل CBT والعلاج باللعب</p></div></div>    
+    </div>    
+    <div class="agenda-day">      
+      <div class="day-header"><span class="day-tag">اليوم الثالث</span><span class="day-date">الاثنين 17 نوفمبر 2025</span></div>      
+      <div class="agenda-item"><div class="agenda-time">9:00 – 12:00</div><div class="agenda-info"><h4>الجلسة العلمية الختامية + حالات عملية</h4><p>عرض ومناقشة الأبحاث المحكّمة</p></div></div>      
+      <div class="agenda-item"><div class="agenda-time">13:00 – 15:00</div><div class="agenda-info"><h4>حفل الختام وتوزيع الشهادات</h4><p>تكريم المشاركين وإعلان مؤتمر العام القادم</p></div></div>    
+    </div>  
+  </div>
+</section>
+
+<section id="testimonials">  
+  <p class="quote-text">"أفضل منصة عربية لتبادل المعرفة في طب نفس الطفل — كل دورة أفضل من التي قبلها"</p>  
+  <div class="quote-author">— د. خالد المنصور، أستاذ الطب النفسي، جامعة الملك عبدالعزيز</div>
+</section>
+
+<section id="pricing">  
+  <div class="section-header">    
+    <div class="section-tag">رسوم الاشتراك</div>    
+    <h2 class="section-title">اختر <span>تذكرتك</span></h2>    
+    <div class="gold-divider"></div>    
+    <p class="section-desc">أسعار واضحة وشفافة — اختر الفئة المناسبة لك</p>  
+  </div>  
+  <div class="pricing-tabs">    
+    <button class="pricing-tab active" onclick="showTab('egyptians', this)">🇪🇬 المصريون</button>    
+    <button class="pricing-tab" onclick="showTab('international', this)">🌍 غير المصريين</button>    
+    <button class="pricing-tab" onclick="showTab('research', this)">📄 المشاركة ببحث</button>  
+  </div>  
+  
+  <div class="pricing-panel active" id="tab-egyptians">    
+    <div class="price-card featured">      
+      <div class="featured-badge">⭐ حضور مباشر</div>      
+      <div class="price-card-title">الحضور المباشر</div>      
+      <div class="price-amount"><span class="price-currency">2,350</span></div>      
+      <div class="price-desc">جنيه مصري — للمشارك المصري</div>      
+      <ul class="price-features">        
+        <li>حضور الجلسات العلمية الثلاثة</li>        
+        <li>شهادة حضور معتمدة</li>        
+        <li>مواد المؤتمر الرقمية</li>        
+        <li>الاستفادة من كافة الامتيازات</li>      
+      </ul>      
+      <button class="price-btn price-btn-gold" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">سجّل الآن</button>    
+    </div>    
+    <div class="price-card">      
+      <div class="price-card-title">المرافق (بدون امتيازات)</div>      
+      <div class="price-amount"><span class="price-currency">900</span></div>      
+      <div class="price-desc">جنيه مصري — للمرافق فقط</div>      
+      <ul class="price-features">        
+        <li>حضور المؤتمر فقط</li>        
+        <li>بدون شهادة معتمدة</li>        
+        <li>بدون مواد علمية</li>      
+      </ul>      
+      <button class="price-btn price-btn-outline" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">سجّل الآن</button>    
+    </div>    
+    <div class="price-card">      
+      <div class="price-card-title">الحضور أونلاين</div>      
+      <div class="price-amount"><span class="price-currency">1,300</span></div>      
+      <div class="price-desc">جنيه مصري — حضور عن بُعد</div>      
+      <ul class="price-features">        
+        <li>بث مباشر لجميع الجلسات</li>        
+        <li>شهادة حضور معتمدة</li>        
+        <li>مواد المؤتمر الرقمية</li>      
+      </ul>      
+      <button class="price-btn price-btn-outline" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">سجّل الآن</button>    
+    </div>  
+  </div>  
+  
+  <div class="pricing-panel" id="tab-international">    
+    <div class="price-card featured" style="max-width:420px; margin:0 auto;">      
+      <div class="featured-badge">🌍 غير المصريين</div>      
+      <div class="price-card-title">حضور مباشر أو أونلاين</div>      
+      <div class="price-amount"><span class="price-currency">$</span>150</div>      
+      <div class="price-desc">دولار أمريكي — للحضور المباشر أو الأونلاين</div>      
+      <ul class="price-features">        
+        <li>حضور جميع الجلسات العلمية</li>        
+        <li>شهادة حضور معتمدة</li>        
+        <li>مواد المؤتمر الرقمية</li>        
+        <li>رسوم الأونلاين شاملة الشحن</li>      
+      </ul>      
+      <button class="price-btn price-btn-gold" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">سجّل الآن</button>    
+    </div>  
+  </div>  
+  
+  <div class="pricing-panel" id="tab-research">    
+    <div class="price-card featured" style="max-width:420px; margin:0 auto;">      
+      <div class="featured-badge">📄 مشاركة بحثية</div>      
+      <div class="price-card-title">المشاركة ببحث أو ورقة عمل</div>      
+      <div class="price-amount"><span class="price-currency">$</span>250</div>      
+      <div class="price-desc">دولار أمريكي</div>      
+      <ul class="price-features">        
+        <li>عرض البحث في جلسة علمية</li>        
+        <li>نشر الورقة في وقائع المؤتمر</li>        
+        <li>شهادة مشاركة بحثية معتمدة</li>        
+        <li>جميع امتيازات الحضور مشمولة</li>      
+      </ul>      
+      <button class="price-btn price-btn-gold" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">قدّم بحثك الآن</button>    
+    </div>  
+  </div>
+</section>
+
+<section id="register">  
+  <div class="section-header">    
+    <div class="section-tag">التسجيل</div>    
+    <h2 class="section-title">سجّل الآن <span>واحجز مقعدك</span></h2>    
+    <div class="gold-divider"></div>    
+    <p class="section-desc">المقاعد محدودة — تسجيلك مضمون فور استلام التأكيد والسداد</p>  
+  </div>  
+  <div class="embed-wrapper">    
+    <div class="embed-placeholder">      
+      <div class="embed-icon">📋</div>      
+      <p>ضع هنا الـ embed code بتاع الفورم بتاعك<br>      افتح الكود واستبدل هذا القسم بالكامل بـ <code>&lt;iframe&gt;</code> أو كود الـ embed</p>    
+    </div>  
+  </div>
+</section>
+
+<section id="prev-editions">  
+  <div class="section-header">    
+    <div class="section-tag">دوراتنا السابقة</div>    
+    <h2 class="section-title">مسيرة <span>نجاح متواصلة</span></h2>    
+    <div class="gold-divider"></div>    
+    <p class="section-desc">أربع دورات ناجحة سبقت هذه النسخة — تاريخ من العطاء العلمي</p>  
+  </div>  
+  <div class="editions-grid">    
+    <div class="edition-card">      
+      <div class="edition-header">        
+        <div class="edition-num">2</div>        
+        <div class="edition-badge">الدورة الثانية</div>        
+        <div class="edition-title">المؤتمر العربي الثاني للصحة النفسية</div>        
+        <div class="edition-date">📅 تاريخ الدورة — القاهرة، مصر</div>      
+      </div>      
+      <div class="edition-body">        
+        <div class="edition-stats">          
+          <div class="edition-stat"><strong>+</strong><span>مشارك</span></div>          
+          <div class="edition-stat"><strong>+</strong><span>متحدث</span></div>          
+          <div class="edition-stat"><strong>+</strong><span>دولة</span></div>        
+        </div>        
+        <a href="#" class="edition-link">🔗 استعرض الدورة</a>      
+      </div>    
+    </div>    
+    <div class="edition-card">      
+      <div class="edition-header">        
+        <div class="edition-num">3</div>        
+        <div class="edition-badge">الدورة الثالثة</div>        
+        <div class="edition-title">المؤتمر العربي الثالث للصحة النفسية</div>        
+        <div class="edition-date">📅 تاريخ الدورة — القاهرة، مصر</div>      
+      </div>      
+      <div class="edition-body">        
+        <div class="edition-stats">          
+          <div class="edition-stat"><strong>+</strong><span>مشارك</span></div>          
+          <div class="edition-stat"><strong>+</strong><span>متحدث</span></div>          
+          <div class="edition-stat"><strong>+</strong><span>دولة</span></div>        
+        </div>        
+        <a href="#" class="edition-link">🔗 استعرض الدورة</a>      
+      </div>    
+    </div>    
+    <div class="edition-card">      
+      <div class="edition-header">        
+        <div class="edition-num">4</div>        
+        <div class="edition-badge">الدورة الرابعة</div>        
+        <div class="edition-title">المؤتمر العربي الرابع للصحة النفسية</div>        
+        <div class="edition-date">📅 تاريخ الدورة — القاهرة، مصر</div>      
+      </div>      
+      <div class="edition-body">        
+        <div class="edition-stats">          
+          <div class="edition-stat"><strong>+</strong><span>مشارك</span></div>          
+          <div class="edition-stat"><strong>+</strong><span>متحدث</span></div>          
+          <div class="edition-stat"><strong>+</strong><span>دولة</span></div>        
+        </div>        
+        <a href="#" class="edition-link">🔗 استعرض الدورة</a>      
+      </div>    
+    </div>  
   </div>
 </section>
 
 <footer>  
-  <div class="footer-logo">أكاديمية النخبة الدولية & أكاديمية الخبراء الدولية</div>    
-  <div class="footer-tagline">تمكين الوعي وصناعة المستقبل في عالم متغير</div>    
-  <div class="footer-copy">© 2026 جميع الحقوق محفوظة — المؤتمر العربي الخامس للصحة النفسية</div>  
+  <div style="max-width:960px;margin:0 auto;">    
+    <div style="display:flex;justify-content:center;align-items:flex-start;gap:4rem;flex-wrap:wrap;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(0,0,0,0.05);">      
+      <div style="text-align:center;">        
+        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:0.6rem;letter-spacing:2px;">برعاية وتنظيم</div>        
+        <a href="https://ieatd.com" target="_blank" rel="noopener" style="text-decoration:none;display:block;">          
+          <div style="font-size:1.1rem;font-weight:800;color:var(--gold);margin-bottom:0.25rem;">أكاديمية النخبة الدولية</div>          
+          <div style="font-size:0.82rem;color:var(--gold3);opacity:0.8;">للتدريب والتنمية — IEAtd</div>          
+          <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.3rem;">ieatd.com ↗</div>        
+        </a>      
+      </div>      
+      <div style="width:1px;background:rgba(0,0,0,0.05);min-height:70px;"></div>      
+      <div style="text-align:center;">        
+        <div style="font-size:0.75rem;color:var(--text-muted);margin-bottom:0.6rem;letter-spacing:2px;">برعاية وتنظيم</div>        
+        <a href="https://www.iexpertsacademy.com" target="_blank" rel="noopener" style="text-decoration:none;display:block;">          
+          <div style="font-size:1.1rem;font-weight:800;color:var(--gold);margin-bottom:0.25rem;">أكاديمية الخبراء الدولية</div>          
+          <div style="font-size:0.82rem;color:var(--gold3);opacity:0.8;">International Experts Academy</div>          
+          <div style="font-size:0.78rem;color:var(--text-muted);margin-top:0.3rem;">iexpertsacademy.com ↗</div>        
+        </a>      
+      </div>    
+    </div>    
+    <div class="footer-tagline">تمكين الوعي وصناعة المستقبل في عالم متغير</div>    
+    <div class="footer-links">      
+      <a href="https://ieatd.com" target="_blank" rel="noopener">🌐 ieatd.com</a>      
+      <a href="https://www.iexpertsacademy.com" target="_blank" rel="noopener">🌐 iexpertsacademy.com</a>      
+      <a href="mailto:info@ieatd.com">📧 info@ieatd.com</a>      
+      <a href="tel:+201103318330">📞 011 03318330</a>    
+    </div>    
+    <div class="footer-copy">      
+      © 2026 المؤتمر العربي الخامس للصحة النفسية للأطفال والمراهقين — جميع الحقوق محفوظة<br>      
+      <span style="opacity:0.8;">برعاية مشتركة: <a href="https://ieatd.com" target="_blank" rel="noopener" style="color:var(--gold);">أكاديمية النخبة الدولية IEAtd</a> &amp; <a href="https://www.iexpertsacademy.com" target="_blank" rel="noopener" style="color:var(--gold);">أكاديمية الخبراء الدولية</a></span>    
+    </div>  
+  </div>
 </footer>
 
 <script>
-window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
+window.addEventListener('scroll', () => {  
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+});
+
+function createParticles() {  
+    const c = document.getElementById('particles');
+    for (let i = 0; i < 25; i++) {    
+        const p = document.createElement('div');    
+        p.className = 'particle';
+        p.style.cssText = `left:${Math.random()*100}%;width:${Math.random()*3+1}px;height:${Math.random()*3+1}px;animation-duration:${Math.random()*15+8}s;animation-delay:${Math.random()*10}s;`;    
+        c.appendChild(p);  
+    }
+}
+createParticles();
+
+function showTab(tab, btn) {  
+    document.querySelectorAll('.pricing-panel').forEach(p => p.classList.remove('active'));  
+    document.querySelectorAll('.pricing-tab').forEach(b => b.classList.remove('active'));  
+    document.getElementById('tab-' + tab).classList.add('active');
+    btn.classList.add('active');
+}
+
+function animateCount(el) {  
+    const target = parseInt(el.getAttribute('data-target'));  
+    let current = 0;  
+    const step = target / 60;
+    const timer = setInterval(() => {    
+        current += step;    
+        if (current >= target) { el.textContent = target; clearInterval(timer); }    
+        else el.textContent = Math.floor(current);  
+    }, 2000/60);
+}
+
+const io = new IntersectionObserver(entries => {  
+    entries.forEach(e => {    
+        if (e.isIntersecting) {      
+            e.target.classList.add('visible');      
+            e.target.querySelectorAll('.count-up').forEach(animateCount);    
+        }  
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.why-card, .topic-item, .speaker-card, .agenda-item, .price-card, .stat-card, .edition-card').forEach((el, i) => {  
+    el.style.transitionDelay = (i % 4) * 0.08 + 's';  
+    io.observe(el);
+});
 </script></body></html>
