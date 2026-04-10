@@ -1,14 +1,14 @@
 <!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>المؤتمر العربي الخامس للصحة النفسية للأطفال والمراهقين</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"><style>  
 :root {    
-    --navy: #FAF9F6;    /* أبيض كريمي للخلفية الأساسية */
-    --navy2: #F2EEE5;   /* درجة أغمق قليلاً للتبادل بين الأقسام */
-    --navy3: #E8E2D2;   /* درجة ثالثة للتنسيق */
-    --gold: #8B0000;    /* أحمر داكن (Dark Red) */
+    --navy: #FAF9F6;    /* أبيض كريمي للخلفية */
+    --navy2: #F2EEE5;   /* درجة كريمي أغمق للأقسام */
+    --navy3: #E8E2D2;   
+    --gold: #8B0000;    /* أحمر داكن */
     --gold2: #000000;   /* أسود */
-    --gold3: #A52A2A;   /* أحمر طوبي للأيقونات واللمسات */
-    --cream: #1A1A1A;   /* لون النصوص الأساسية (داكن) */
-    --text-light: #2D2D2D; /* نصوص العناوين */
-    --text-muted: #5A5A5A; /* نصوص فرعية */
+    --gold3: #A52A2A;   
+    --cream: #1A1A1A;   /* نصوص داكنة للوضوح */
+    --text-light: #2D2D2D; 
+    --text-muted: #5A5A5A; 
 }  
 * { margin: 0; padding: 0; box-sizing: border-box; }  
 html { scroll-behavior: smooth; }  
@@ -21,9 +21,9 @@ nav.scrolled { background: rgba(250, 249, 246, 0.96); backdrop-filter: blur(20px
 #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 6rem 2rem 4rem; }  
 .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 40%, rgba(139, 0, 0, 0.05) 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, rgba(242, 238, 229, 0.5) 0%, var(--navy) 70%); }    
 .orb { position: absolute; border-radius: 50%; filter: blur(60px); animation: floatOrb 8s ease-in-out infinite; pointer-events: none; }  
-.orb1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(139, 0, 0, 0.08) 0%, transparent 70%); top: -100px; right: -100px; animation-delay: 0s; }  
-.orb2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 70%); bottom: 0; left: 10%; animation-delay: -3s; }  
-.orb3 { width: 250px; height: 250px; background: radial-gradient(circle, rgba(139, 0, 0, 0.05) 0%, transparent 70%); top: 40%; left: 30%; animation-delay: -5s; }  
+.orb1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(139, 0, 0, 0.08) 0%, transparent 70%); top: -100px; right: -100px; }  
+.orb2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(0, 0, 0, 0.05) 0%, transparent 70%); bottom: 0; left: 10%; }  
+.orb3 { width: 250px; height: 250px; background: radial-gradient(circle, rgba(139, 0, 0, 0.05) 0%, transparent 70%); top: 40%; left: 30%; }  
 @keyframes floatOrb { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }  
 .particles { position: absolute; inset: 0; pointer-events: none; }  
 .particle { position: absolute; width: 3px; height: 3px; background: var(--gold); border-radius: 50%; opacity: 0; animation: rise linear infinite; }  
@@ -36,26 +36,26 @@ nav.scrolled { background: rgba(250, 249, 246, 0.96); backdrop-filter: blur(20px
 .hero-title span { background: linear-gradient(135deg, var(--gold), var(--gold3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }  
 .hero-subtitle { font-family: 'Amiri', serif; font-size: clamp(1.1rem, 2.5vw, 1.6rem); color: var(--text-muted); margin-bottom: 2rem; animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }  
 .hero-date-location { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }  
-.hero-badge { display: flex; align-items: center; gap: 0.5rem; background: #fff; border: 1px solid rgba(139, 0, 0, 0.1); padding: 0.7rem 1.3rem; border-radius: 12px; font-size: 0.95rem; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }  
+.hero-badge { display: flex; align-items: center; gap: 0.5rem; background: #fff; border: 1px solid rgba(139, 0, 0, 0.1); padding: 0.7rem 1.3rem; border-radius: 12px; font-size: 0.95rem; font-weight: 600; }  
 .hero-badge strong { color: var(--gold); }  
 .hero-cta-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0; }  
 .btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; padding: 1rem 2.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }  
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }  
-.btn-secondary { background: transparent; color: var(--gold2); border: 2px solid var(--gold2); padding: 1rem 2.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }  
-.btn-secondary:hover { background: var(--gold2); color: #fff; transform: translateY(-3px); }  
+.btn-secondary { background: transparent; color: var(--gold); border: 2px solid var(--gold); padding: 1rem 2.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }  
+.btn-secondary:hover { border-color: var(--gold2); background: rgba(139, 0, 0, 0.05); transform: translateY(-3px); }  
 .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.3rem; opacity: 0.5; animation: bounce 2s ease-in-out infinite; }  
 .scroll-indicator span { font-size: 0.75rem; color: var(--gold); letter-spacing: 2px; }  
 .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); }  
 @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }  
 #stats { padding: 4rem 2rem; background: linear-gradient(to bottom, var(--navy), var(--navy2)); }  
 .stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.5rem; }  
-.stat-card { text-align: center; padding: 2rem 1rem; border-radius: 20px; border: 1px solid rgba(139, 0, 0, 0.08); background: #fff; transition: all 0.4s ease; position: relative; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }  
+.stat-card { text-align: center; padding: 2rem 1rem; border-radius: 20px; border: 1px solid rgba(139, 0, 0, 0.1); background: #fff; transition: all 0.4s ease; position: relative; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }  
 .stat-card:hover { transform: translateY(-5px); border-color: var(--gold); }  
 .stat-number { font-size: 3rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }  
 .stat-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }  
 section { padding: 6rem 2rem; }  
 .section-tag { display: inline-block; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.15); color: var(--gold); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }  
-.section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; line-height: 1.3; margin-bottom: 1rem; color: var(--gold2); }  
+.section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; line-height: 1.3; margin-bottom: 1rem; }  
 .section-title span { color: var(--gold); }  
 .section-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 600px; line-height: 1.8; }  
 .section-header { text-align: center; margin-bottom: 3.5rem; }  
@@ -65,7 +65,7 @@ section { padding: 6rem 2rem; }
 .why-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }  
 .why-card { padding: 2rem; border-radius: 20px; border: 1px solid rgba(139, 0, 0, 0.08); background: #fff; position: relative; overflow: hidden; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }  
 .why-card.visible { opacity: 1; transform: translateY(0); }  
-.why-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }  
+.why-card:hover { border-color: var(--gold); background: #fff; transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }  
 .why-card-icon { width: 60px; height: 60px; border-radius: 16px; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1.2rem; }  
 .why-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.7rem; }  
 .why-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.8; }  
@@ -98,39 +98,36 @@ section { padding: 6rem 2rem; }
 .agenda-time { min-width: 90px; font-size: 0.82rem; color: var(--gold); font-weight: 600; padding-top: 3px; }  
 .agenda-info h4 { font-size: 0.93rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.2rem; }  
 .agenda-info p { font-size: 0.8rem; color: var(--text-muted); }  
-#testimonials { padding: 4rem 2rem; background: rgba(139, 0, 0, 0.02); border-top: 1px solid rgba(139, 0, 0, 0.05); border-bottom: 1px solid rgba(139, 0, 0, 0.05); text-align: center; }  
+#testimonials { padding: 4rem 2rem; background: rgba(139, 0, 0, 0.02); text-align: center; }  
 .quote-text { font-family: 'Amiri', serif; font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--gold2); line-height: 1.9; max-width: 800px; margin: 0 auto 1rem; }  
 .quote-author { color: var(--gold); font-weight: 600; font-size: 0.95rem; }  
 #pricing { background: var(--navy2); }  
 .price-card { padding: 2.5rem 2rem; border-radius: 24px; border: 1px solid rgba(139, 0, 0, 0.1); background: #fff; position: relative; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }  
 .price-card.visible { opacity: 1; transform: translateY(0); }  
-.price-card.featured { border-color: var(--gold); background: #fff; box-shadow: 0 20px 50px rgba(139, 0, 0, 0.1); }  
-.featured-badge { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; padding: 0.3rem 1.2rem; border-radius: 50px; font-size: 0.8rem; font-weight: 800; }  
-.price-card-title { color: var(--gold2); }  
-.price-amount { color: var(--gold); }  
-.price-features li { color: var(--text-light); border-bottom: 1px solid rgba(0,0,0,0.05); }  
-.price-features li::before { content: '✓'; color: var(--gold); }  
+.price-card.featured { border-color: var(--gold); background: #fff; box-shadow: 0 15px 40px rgba(139, 0, 0, 0.1); }  
+.featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; padding: 0.3rem 1.2rem; border-radius: 50px; font-size: 0.8rem; font-weight: 800; }  
+.price-amount { font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }  
+.price-features li::before { content: '✓'; color: var(--gold); font-weight: 700; }  
 .price-btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; }  
-.price-btn-outline { background: transparent; color: var(--gold2); border: 1px solid var(--gold2); }  
-.price-btn-outline:hover { background: var(--gold2); color: #fff; }  
-#register { background: var(--navy); position: relative; overflow: hidden; }  
-.form-wrapper { background: #fff; border: 1px solid rgba(139, 0, 0, 0.1); box-shadow: 0 20px 60px rgba(0,0,0,0.05); }  
+.price-btn-outline { background: transparent; color: var(--gold); border: 1px solid var(--gold); }  
+#register { background: var(--navy); }  
+.form-wrapper { max-width: 750px; margin: 0 auto; background: #fff; border: 1px solid rgba(139, 0, 0, 0.1); border-radius: 28px; padding: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.03); }  
 .form-group input, .form-group select, .form-group textarea { background: var(--navy); border: 1px solid rgba(0,0,0,0.1); color: var(--gold2); }  
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(139, 0, 0, 0.05); }  
 .form-submit { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; }  
 footer { background: var(--navy2); border-top: 1px solid rgba(139, 0, 0, 0.1); padding: 3rem 2rem; text-align: center; }  
 .footer-logo { color: var(--gold); }  
-.footer-links a:hover { color: var(--gold); }  
-.pricing-tab { border: 1px solid var(--gold2); color: var(--gold2); }  
-.pricing-tab.active { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; }  
-.edition-card { background: #fff; border: 1px solid rgba(139, 0, 0, 0.08); }  
-.edition-title { color: var(--gold2); }  
+.edition-card { background: #fff; border: 1px solid rgba(139, 0, 0, 0.1); }  
 .edition-stat strong { color: var(--gold); }  
-.edition-link { background: rgba(139, 0, 0, 0.05); color: var(--gold); border: 1px solid rgba(139, 0, 0, 0.1); }  
-.edition-link:hover { background: var(--gold); color: #fff; }  
-</style></head>
-<body>
-<nav id="navbar">  <div class="nav-logo">🧠 أكاديمية النخبة الدولية</div>  <a href="#register" class="nav-cta">سجّل الآن</a></nav>
+.edition-link { background: rgba(139, 0, 0, 0.05); color: var(--gold); border: 1px solid var(--gold); }  
+.pricing-tab { border: 1px solid var(--gold); color: var(--gold); }  
+.pricing-tab.active { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border-color: transparent; }  
+</style></head><body>
+
+<nav id="navbar">  
+    <div class="nav-logo">🧠 أكاديمية النخبة الدولية</div>  
+    <a href="#register" class="nav-cta">سجّل الآن</a>
+</nav>
+
 <section id="hero">  
   <div class="hero-bg"></div>    
   <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
@@ -172,7 +169,114 @@ footer { background: var(--navy2); border-top: 1px solid rgba(139, 0, 0, 0.1); p
   <div class="why-grid">    
     <div class="why-card"><div class="card-number">01</div><div class="why-card-icon">🏆</div><h3>المرجع الأول عربياً</h3><p>المؤتمر العربي الوحيد المتخصص حصرياً في الصحة النفسية للأطفال والمراهقين منذ خمس سنوات متواصلة.</p></div>    
     <div class="why-card"><div class="card-number">02</div><div class="why-card-icon">🧪</div><h3>محتوى علمي محكّم</h3><p>كل محتوى المؤتمر يمر بلجنة علمية دولية من أبرز الأكاديميين والمعالجين النفسيين في العالم العربي وأوروبا.</p></div>    
-    <div class="why-card"><div class="card-number">03</div><div class="why-card-icon">🌍</div><h3>شبكة تواصل دولية</h3><p>أكثر من 14 دولة عربية تشارك في كل دورة. فرصتك لبناء شبكة علاقات مهنية تستمر طوال مسيرتك.</p></div>  
+    <div class="why-card"><div class="card-number">03</div><div class="why-card-icon">🌍</div><h3>شبكة تواصل دولية</h3><p>أكثر من 14 دولة عربية تشارك في كل دورة. فرصتك لبناء شبكة علاقات مهنية تستمر طوال مسيرتك.</p></div>    
+    <div class="why-card"><div class="card-number">04</div><div class="why-card-icon">📜</div><h3>شهادات معتمدة دولياً</h3><p>تحصل على شهادات حضور معتمدة وساعات تدريبية CPD/CME معترف بها في أكثر من 10 دول.</p></div>    
+    <div class="why-card"><div class="card-number">05</div><div class="why-card-icon">🔬</div><h3>ورش عمل تطبيقية</h3><p>12 ورشة عمل تطبيقية عملية تتدرب فيها على أحدث الأدوات والتقنيات العلاجية المستخدمة عالمياً.</p></div>    
+    <div class="why-card"><div class="card-number">06</div><div class="why-card-icon">💎</div><h3>تجربة استثنائية</h3><p>بيئة احترافية راقية وتنظيم على أعلى مستوى يجعل تجربتك لا تُنسى علمياً واجتماعياً.</p></div>  
+  </div>
+</section>
+
+<section id="topics">  
+  <div class="section-header">    
+    <div class="section-tag">محاور المؤتمر</div>    
+    <h2 class="section-title">المحاور العلمية <span>الستة</span></h2>    
+    <div class="gold-divider"></div>    
+    <p class="section-desc">ستة محاور علمية شاملة تغطي أحدث التطورات في مجال الصحة النفسية للأطفال والمراهقين</p>  
+  </div>  
+  <div class="topics-wrapper">    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الأول:</strong> الابتكار في الممارسة الإكلينيكية — من التشخيص إلى التمكين النفسي</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الثاني:</strong> عصر الذكاء الاصطناعي وتأثيره على الأطفال والمراهقين — الفرص المعرفية مقابل مخاطر التنميط والعزلة</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الثالث:</strong> الحروب والصراعات وتأثيرها على الصحة النفسية — النمو ما بعد الصدمة</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الرابع:</strong> الصحة النفسية لطلاب المدارس — استراتيجيات بناء المرونة النفسية وجودة الحياة في العصر الرقمي</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الخامس:</strong> تحديات التربية في عالم مفتوح — دور الأسرة في عصر العولمة والانفتاح</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور السادس:</strong> علم نفس التدريب التوجيهي (الكوتشينج) وعلم النفس الإيجابي — صناعة مهارات المستقبل</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>الضوابط المهنية والأخلاقية في التعامل مع القاصرين والحفاظ على السرية والأمان</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>العلاجات التعبيرية (الفنون) واللعب كأدوات تشخيصية وعلاجية</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>تأثير الذكاء الاصطناعي على صورة الجسد وتقدير الذات لدى المراهقين</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>التعلق العاطفي بالآلة (Machine Attachment) وأثره على النمو العاطفي والاجتماعي</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>استراتيجيات الدعم النفسي للمعلمين لمواجهة الاحتراق الوظيفي</span></div>    
+    <div class="topic-item"><div class="topic-dot"></div><span>مقاربات حديثة في التعامل مع الإدمان الإلكتروني وقلق الانفصال الرقمي (FOMO)</span></div>  
+  </div>
+</section>
+
+<section id="speakers">  
+  <div class="section-header">    
+    <div class="section-tag">المتحدثون</div>    
+    <h2 class="section-title">نخبة من <span>أبرز الخبراء</span></h2>    
+    <div class="gold-divider"></div>    
+    <p class="section-desc">متحدثون دوليون ومحليون من أعلى الكفاءات في مجال الصحة النفسية</p>  
+  </div>  
+  <div class="speakers-grid">    
+    <div class="speaker-card"><div class="speaker-avatar">👨‍⚕️</div><div class="speaker-name">د. أحمد محمد السعيد</div><div class="speaker-title">أستاذ الطب النفسي للأطفال</div><div class="speaker-country">🇪🇬 مصر</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👩‍⚕️</div><div class="speaker-name">د. نورة العمري</div><div class="speaker-title">رئيس قسم طب نفسي الطفل</div><div class="speaker-country">🇸🇦 المملكة العربية السعودية</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👨‍🔬</div><div class="speaker-name">Prof. James Carter</div><div class="speaker-title">Child Psychology Expert</div><div class="speaker-country">🇬🇧 المملكة المتحدة</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👩‍🏫</div><div class="speaker-name">د. ليلى حداد</div><div class="speaker-title">متخصصة علاج الصدمات</div><div class="speaker-country">🇱🇧 لبنان</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">🧑‍⚕️</div><div class="speaker-name">د. محمد الرشيدي</div><div class="speaker-title">خبير اضطرابات النمو</div><div class="speaker-country">🇰🇼 الكويت</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👩‍🔬</div><div class="speaker-name">Dr. Sarah Mitchell</div><div class="speaker-title">Adolescent Mental Health</div><div class="speaker-country">🇺🇸 الولايات المتحدة</div></div>  
+  </div>
+</section>
+
+<section id="agenda">  
+  <div class="section-header">    
+    <div class="section-tag">البرنامج</div>    
+    <h2 class="section-title">برنامج <span>المؤتمر</span></h2>    
+    <div class="gold-divider"></div>  
+  </div>  
+  <div class="agenda-wrapper">    
+    <div class="agenda-day">      
+      <div class="day-header"><span class="day-tag">اليوم الأول</span><span class="day-date">السبت 15 نوفمبر 2025</span></div>      
+      <div class="agenda-item"><div class="agenda-time">9:00 – 10:00</div><div class="agenda-info"><h4>حفل الافتتاح الرسمي</h4><p>كلمة الرئيس الشرفي وتكريم الرواد</p></div></div>      
+      <div class="agenda-item"><div class="agenda-time">10:30 – 12:30</div><div class="agenda-info"><h4>الجلسة العلمية الأولى</h4><p>اضطرابات القلق والاكتئاب لدى الأطفال</p></div></div>      
+      <div class="agenda-item"><div class="agenda-time">14:00 – 16:30</div><div class="agenda-info"><h4>الورش التطبيقية — الدفعة الأولى</h4><p>4 ورش متوازية — التسجيل المسبق مطلوب</p></div></div>    
+    </div>    
+    <div class="agenda-day">      
+      <div class="day-header"><span class="day-tag">اليوم الثاني</span><span class="day-date">الأحد 16 نوفمبر 2025</span></div>      
+      <div class="agenda-item"><div class="agenda-time">9:00 – 11:00</div><div class="agenda-info"><h4>المحاضرة الرئيسية الدولية</h4><p>الذكاء الاصطناعي ومستقبل الصحة النفسية</p></div></div>      
+      <div class="agenda-item"><div class="agenda-time">11:30 – 13:30</div><div class="agenda-info"><h4>الجلسة العلمية الثانية</h4><p>التوحد والاضطرابات النمائية — أحدث البروتوكولات</p></div></div>      
+      <div class="agenda-item"><div class="agenda-time">15:00 – 17:30</div><div class="agenda-info"><h4>الورش التطبيقية — الدفعة الثانية</h4><p>4 ورش تشمل CBT والعلاج باللعب</p></div></div>    
+    </div>    
+    <div class="agenda-day">      
+      <div class="day-header"><span class="day-tag">اليوم الثالث</span><span class="day-date">الاثنين 17 نوفمبر 2025</span></div>      
+      <div class="agenda-item"><div class="agenda-time">9:00 – 12:00</div><div class="agenda-info"><h4>الجلسة العلمية الختامية + حالات عملية</h4><p>عرض ومناقشة الأبحاث المحكّمة</p></div></div>      
+      <div class="agenda-item"><div class="agenda-time">13:00 – 15:00</div><div class="agenda-info"><h4>حفل الختام وتوزيع الشهادات</h4><p>تكريم المشاركين وإعلان مؤتمر العام القادم</p></div></div>    
+    </div>  
+  </div>
+</section>
+
+<section id="testimonials">  
+  <p class="quote-text">"أفضل منصة عربية لتبادل المعرفة في طب نفس الطفل — كل دورة أفضل من التي قبلها"</p>  
+  <div class="quote-author">— د. خالد المنصور، أستاذ الطب النفسي، جامعة الملك عبدالعزيز</div>
+</section>
+
+<section id="pricing">  
+  <div class="section-header">    
+    <div class="section-tag">رسوم الاشتراك</div>    
+    <h2 class="section-title">اختر <span>تذكرتك</span></h2>    
+    <div class="gold-divider"></div>  
+  </div>  
+  <div class="pricing-tabs">    
+    <button class="pricing-tab active" onclick="showTab('egyptians', this)">🇪🇬 المصريون</button>    
+    <button class="pricing-tab" onclick="showTab('international', this)">🌍 غير المصريين</button>    
+    <button class="pricing-tab" onclick="showTab('research', this)">📄 المشاركة ببحث</button>  
+  </div>  
+  <div class="pricing-panel active" id="tab-egyptians">    
+    <div class="price-card featured">      
+      <div class="featured-badge">⭐ حضور مباشر</div>      
+      <div class="price-card-title">الحضور المباشر</div>      
+      <div class="price-amount"><span class="price-currency">2,350</span></div>      
+      <div class="price-desc">جنيه مصري — للمشارك المصري</div>      
+      <ul class="price-features">        
+        <li>حضور الجلسات العلمية الثلاثة</li>        
+        <li>شهادة حضور معتمدة</li>        
+        <li>مواد المؤتمر الرقمية</li>      
+      </ul>      
+      <button class="price-btn price-btn-gold" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">سجّل الآن</button>    
+    </div>    
+    <div class="price-card">      
+      <div class="price-card-title">المرافق (بدون امتيازات)</div>      
+      <div class="price-amount"><span class="price-currency">900</span></div>      
+      <button class="price-btn price-btn-outline" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">سجّل الآن</button>    
+    </div>  
   </div>
 </section>
 
@@ -182,30 +286,45 @@ footer { background: var(--navy2); border-top: 1px solid rgba(139, 0, 0, 0.1); p
     <h2 class="section-title">سجّل الآن <span>واحجز مقعدك</span></h2>    
     <div class="gold-divider"></div>  
   </div>  
-  <div class="form-wrapper" style="max-width: 750px; margin: 0 auto; border-radius: 28px; padding: 3rem;">    
-    <div class="embed-placeholder" style="text-align: center; padding: 2rem;">      
-      <div class="embed-icon" style="font-size: 3rem; margin-bottom: 1rem;">📋</div>      
-      <p style="color: var(--text-muted);">نظام التسجيل متاح الآن، يرجى ملء البيانات المطلوبة</p>      
-      <button class="form-submit" style="max-width: 300px; margin: 2rem auto;">فتح نموذج التسجيل</button>
+  <div class="form-wrapper">    
+    <div class="embed-placeholder">      
+      <div class="embed-icon">📋</div>      
+      <p>ضع هنا الـ embed code بتاع الفورم بتاعك</p>    
     </div>  
+  </div>
+</section>
+
+<section id="prev-editions">  
+  <div class="section-header">    
+    <div class="section-tag">دوراتنا السابقة</div>    
+    <h2 class="section-title">مسيرة <span>نجاح متواصلة</span></h2>    
+    <div class="gold-divider"></div>  
+  </div>  
+  <div class="editions-grid">    
+    <div class="edition-card">      
+      <div class="edition-header"><div class="edition-num">2</div><div class="edition-title">المؤتمر العربي الثاني</div></div>      
+      <div class="edition-body"><a href="#" class="edition-link">🔗 استعرض الدورة</a></div>    
+    </div>    
   </div>
 </section>
 
 <footer>  
   <div style="max-width:960px;margin:0 auto;">    
-    <div class="footer-logo">أكاديمية النخبة الدولية & أكاديمية الخبراء الدولية</div>    
-    <div class="footer-tagline">تمكين الوعي وصناعة المستقبل في عالم متغير</div>    
-    <div class="footer-links" style="display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0;">      
-      <a href="#" style="color: var(--text-muted); text-decoration: none;">الرئيسية</a>      
-      <a href="#" style="color: var(--text-muted); text-decoration: none;">المحاور</a>      
-      <a href="#" style="color: var(--text-muted); text-decoration: none;">المتحدثون</a>    
+    <div style="display:flex;justify-content:center;gap:4rem;flex-wrap:wrap;margin-bottom:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(0,0,0,0.05);">      
+      <div style="text-align:center;">        
+        <div style="font-size:1.1rem;font-weight:800;color:var(--gold);">أكاديمية النخبة الدولية</div>      
+      </div>      
+      <div style="text-align:center;">        
+        <div style="font-size:1.1rem;font-weight:800;color:var(--gold);">أكاديمية الخبراء الدولية</div>      
+      </div>    
     </div>    
-    <div class="footer-copy">© 2026 المؤتمر العربي الخامس للصحة النفسية — جميع الحقوق محفوظة</div>  
+    <div class="footer-tagline">تمكين الوعي وصناعة المستقبل في عالم متغير</div>    
+    <div class="footer-copy">© 2026 المؤتمر العربي الخامس — جميع الحقوق محفوظة</div>  
   </div>
 </footer>
 
 <script>
-window.addEventListener('scroll', () => {  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);});
+window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
 function createParticles() {  
     const c = document.getElementById('particles'); 
     for (let i = 0; i < 25; i++) {    
@@ -216,6 +335,13 @@ function createParticles() {
     }
 }
 createParticles();
+function showTab(tab, btn) {  
+    document.querySelectorAll('.pricing-panel').forEach(p => p.classList.remove('active'));  
+    document.querySelectorAll('.pricing-tab').forEach(b => b.classList.remove('active'));  
+    const target = document.getElementById('tab-' + tab);
+    if(target) target.classList.add('active');
+    btn.classList.add('active');
+}
 function animateCount(el) {  
     const target = parseInt(el.getAttribute('data-target'));  
     let current = 0;  
@@ -227,16 +353,10 @@ function animateCount(el) {
     }, 2000/60);
 }
 const io = new IntersectionObserver(entries => {  
-    entries.forEach(e => {    
-        if (e.isIntersecting) {      
-            e.target.classList.add('visible');      
-            e.target.querySelectorAll('.count-up').forEach(animateCount);    
-        }  
-    });
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); e.target.querySelectorAll('.count-up').forEach(animateCount); } });
 }, { threshold: 0.15 });
 document.querySelectorAll('.why-card, .topic-item, .speaker-card, .agenda-item, .price-card, .stat-card, .edition-card').forEach((el, i) => {  
     el.style.transitionDelay = (i % 4) * 0.08 + 's';  
     io.observe(el);
 });
-</script>
-</body></html>
+</script></body></html>
