@@ -1,347 +1,120 @@
 <!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>المؤتمر العربي الخامس للصحة النفسية للأطفال والمراهقين</title><link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"><style>  
 :root {    
-    --navy: #FAF9F6;    /* أبيض كريمي للخلفية الأساسية */
-    --navy2: #F4F1E9;   /* درجة كريمي أغمق للأقسام التبادلية */
+    --navy: #FAF9F6;    /* أبيض كريمي هادئ */
+    --navy2: #F4F1E9;   
     --navy3: #EAE5D5;   
-    --gold: #8B0000;    /* أحمر داكن (Dark Red) */
+    --gold: #8B0000;    /* أحمر داكن */
     --gold2: #000000;   /* أسود */
-    --gold3: #A52A2A;   /* أحمر طوبي للمسات الجمالية */
-    --cream: #1A1A1A;   /* لون النصوص الأساسية داكن للوضوح */
+    --gold3: #A52A2A;   
+    --cream: #1A1A1A;   
     --text-light: #2D2D2D; 
     --text-muted: #5A5A5A; 
 }  
 * { margin: 0; padding: 0; box-sizing: border-box; }  
-html { scroll-behavior: smooth; }  
-body { font-family: 'Cairo', sans-serif; background: var(--navy); color: var(--text-light); direction: rtl; overflow-x: hidden; }  
+html { scroll-behavior: smooth; [span_2](start_span)}
+body { font-family: 'Cairo', sans-serif; background: var(--navy); color: var(--text-light); direction: rtl; overflow-x: hidden; }[span_2](end_span)
 
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 4rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.4s ease; }  
-nav.scrolled { background: rgba(250, 249, 246, 0.96); backdrop-filter: blur(20px); padding: 0.7rem 4rem; border-bottom: 1px solid rgba(139, 0, 0, 0.1); }  
+[span_3](start_span)[span_4](start_span)/* Navigation[span_3](end_span)[span_4](end_span) */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.2rem 4rem; display: flex; justify-content: space-between; align-items: center; transition: all 0.4s ease; }  
+nav.scrolled { background: rgba(250, 249, 246, 0.98); backdrop-filter: blur(20px); padding: 0.8rem 4rem; border-bottom: 1px solid rgba(139, 0, 0, 0.08); }  
 .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--gold); }  
-.nav-cta { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; padding: 0.6rem 1.8rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }  
-.nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(139, 0, 0, 0.3); }  
+.nav-cta { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; padding: 0.7rem 2rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; }  
 
-#hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 6rem 2rem 4rem; }  
-.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 40%, rgba(139, 0, 0, 0.06) 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, rgba(244, 241, 233, 0.5) 0%, var(--navy) 70%); }    
-.orb { position: absolute; border-radius: 50%; filter: blur(60px); animation: floatOrb 8s ease-in-out infinite; pointer-events: none; }  
-.orb1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(139, 0, 0, 0.08) 0%, transparent 70%); top: -100px; right: -100px; }  
-.orb2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(0, 0, 0, 0.04) 0%, transparent 70%); bottom: 0; left: 10%; }  
-.orb3 { width: 250px; height: 250px; background: radial-gradient(circle, rgba(139, 0, 0, 0.05) 0%, transparent 70%); top: 40%; left: 30%; }  
-@keyframes floatOrb { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }  
+[span_5](start_span)/* Hero Section - ضبط المسافات المينماليست[span_5](end_span) */
+#hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 8rem 2rem 5rem; }  
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 30% 40%, rgba(139, 0, 0, 0.04) 0%, transparent 60%); }    
+.orb { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.6; pointer-events: none; }  
+.orb1 { width: 600px; height: 600px; background: rgba(139, 0, 0, 0.08); top: -150px; right: -150px; }  
 
-.particles { position: absolute; inset: 0; pointer-events: none; }  
-.particle { position: absolute; width: 3px; height: 3px; background: var(--gold); border-radius: 50%; opacity: 0; animation: rise linear infinite; }  
-@keyframes rise { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.3; } 100% { transform: translateY(-100px) scale(1.5); opacity: 0; } }  
+.hero-content { position: relative; z-index: 2; text-align: center; max-width: 850px; display: flex; flex-direction: column; align-items: center; }  
 
-.hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; }  
-.conference-edition { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.2); padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.9rem; color: var(--gold); margin-bottom: 1.5rem; animation: fadeInDown 0.8s ease forwards; opacity: 0; }  
-.conference-edition::before { content: ''; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }  
-@keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } }  
+/* مسافات مدروسة بين العناصر */
+.conference-edition { display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.15); padding: 0.5rem 1.8rem; border-radius: 50px; font-size: 0.95rem; color: var(--gold); margin-bottom: 2.5rem; [span_6](start_span)}
 
-.hero-title { font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.2; margin-bottom: 0.5rem; animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; color: var(--gold2); }  
-.hero-title span { background: linear-gradient(135deg, var(--gold), var(--gold3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }  
-.hero-subtitle { font-family: 'Amiri', serif; font-size: clamp(1.1rem, 2.5vw, 1.6rem); color: var(--text-muted); margin-bottom: 2rem; animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }  
+.hero-title { font-size: clamp(2.2rem, 6vw, 4rem); font-weight: 900; line-height: 1.2; margin-bottom: 1.2rem; color: var(--gold2); }[span_6](end_span)
+.hero-title span { background: linear-gradient(135deg, var(--gold), var(--gold3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; [span_7](start_span)}
 
-.hero-date-location { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }  
-.hero-badge { display: flex; align-items: center; gap: 0.5rem; background: #fff; border: 1px solid rgba(139, 0, 0, 0.1); padding: 0.7rem 1.3rem; border-radius: 12px; font-size: 0.95rem; font-weight: 600; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }  
-.hero-badge strong { color: var(--gold); }  
+.hero-subtitle { font-family: 'Amiri', serif; font-size: clamp(1.2rem, 2.5vw, 1.8rem); color: var(--text-muted); margin-bottom: 3.5rem; opacity: 0.9; }[span_7](end_span)
 
-.hero-cta-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0; }  
-.btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; padding: 1rem 2.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }  
+.hero-date-location { display: flex; justify-content: center; gap: 1.2rem; margin-bottom: 2rem; flex-wrap: wrap; width: 100%; [span_8](start_span)}
+.hero-badge { display: flex; align-items: center; gap: 0.8rem; background: #fff; border: 1px solid rgba(0, 0, 0, 0.06); padding: 1rem 1.8rem; border-radius: 16px; font-size: 1rem; font-weight: 600; box-shadow: 0 4px 20px rgba(0,0,0,0.02); min-width: 260px; text-align: right; }[span_8](end_span)
+.hero-badge strong { color: var(--gold); display: block; font-size: 1.1rem; } 
+
+[span_9](start_span)/* قسم الرعاية[span_9](end_span) */
+.sponsor-badge { background: #fff; border: 1px solid rgba(139, 0, 0, 0.1); padding: 1rem 2rem; border-radius: 16px; margin-bottom: 3.5rem; width: fit-content; box-shadow: 0 4px 20px rgba(0,0,0,0.02); }
+.sponsor-badge small { color: var(--text-muted); display: block; margin-bottom: 0.3rem; font-size: 0.85rem; letter-spacing: 1px; }
+.sponsor-badge strong { color: var(--gold2); font-size: 1rem; }
+
+.hero-cta-group { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; [span_10](start_span)[span_11](start_span)[span_12](start_span)}
+.btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; padding: 1.1rem 3rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; text-decoration: none; box-shadow: 0 10px 30px rgba(139, 0, 0, 0.2); }  
 .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }  
-.btn-secondary { background: transparent; color: var(--gold2); border: 2px solid var(--gold2); padding: 1rem 2.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }  
-.btn-secondary:hover { background: var(--gold2); color: #fff; transform: translateY(-3px); }  
 
-.scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.3rem; opacity: 0.5; animation: bounce 2s ease-in-out infinite; }  
-.scroll-indicator span { font-size: 0.75rem; color: var(--gold); letter-spacing: 2px; }  
-.scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); }  
-@keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }  
+/* باقي السكاشن[span_10](end_span)[span_11](end_span)[span_12](end_span) */
+#stats { padding: 5rem 2rem; background: var(--navy2); }
+.stats-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+.stat-card { background: #fff; padding: 2.5rem 1.5rem; border-radius: 24px; text-align: center; border: 1px solid rgba(0,0,0,0.04); }
+.stat-number { font-size: 3rem; font-weight: 900; color: var(--gold); margin-bottom: 0.5rem; }
 
-#stats { padding: 4rem 2rem; background: linear-gradient(to bottom, var(--navy), var(--navy2)); }  
-.stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.5rem; }  
-.stat-card { text-align: center; padding: 2rem 1rem; border-radius: 20px; border: 1px solid rgba(139, 0, 0, 0.1); background: #fff; transition: all 0.4s ease; position: relative; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.02); }  
-.stat-card:hover { transform: translateY(-5px); border-color: var(--gold); }  
-.stat-number { font-size: 3rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }  
-.stat-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }  
-
-section { padding: 6rem 2rem; }  
-.section-tag { display: inline-block; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.15); color: var(--gold); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }  
-.section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; line-height: 1.3; margin-bottom: 1rem; color: var(--gold2); }  
-.section-title span { color: var(--gold); }  
-.section-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 600px; line-height: 1.8; }  
-.section-header { text-align: center; margin-bottom: 3.5rem; }  
-.section-header .section-desc { margin: 0 auto; }  
-.gold-divider { width: 60px; height: 3px; background: linear-gradient(to right, var(--gold), var(--gold2)); border-radius: 2px; margin: 1rem auto; }  
-
-#why-us { background: var(--navy2); position: relative; overflow: hidden; }  
-.why-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }  
-.why-card { padding: 2rem; border-radius: 20px; border: 1px solid rgba(139, 0, 0, 0.08); background: #fff; position: relative; overflow: hidden; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }  
-.why-card.visible { opacity: 1; transform: translateY(0); }  
-.why-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }  
-.why-card-icon { width: 60px; height: 60px; border-radius: 16px; background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1.2rem; }  
-.why-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.7rem; }  
-.why-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.8; }  
-.card-number { position: absolute; top: 1rem; left: 1.5rem; font-size: 4rem; font-weight: 900; color: rgba(139, 0, 0, 0.04); line-height: 1; font-family: 'Amiri', serif; }  
-
-#topics { background: var(--navy); }  
-.topics-wrapper { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }  
-.topic-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.4rem; border-radius: 16px; border: 1px solid rgba(139, 0, 0, 0.08); background: #fff; transition: all 0.3s ease; opacity: 0; transform: translateX(20px); }  
-.topic-item.visible { opacity: 1; transform: translateX(0); }  
-.topic-item:hover { border-color: var(--gold); background: rgba(139, 0, 0, 0.02); }  
-.topic-dot { min-width: 10px; height: 10px; border-radius: 50%; background: var(--gold); margin-top: 5px; }  
-.topic-item span { font-size: 0.93rem; font-weight: 600; color: var(--text-light); line-height: 1.5; }  
-
-#speakers { background: var(--navy2); }  
-.speakers-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }  
-.speaker-card { padding: 2rem 1.5rem; border-radius: 20px; border: 1px solid rgba(139, 0, 0, 0.08); background: #fff; text-align: center; transition: all 0.4s ease; opacity: 0; transform: scale(0.95); }  
-.speaker-card.visible { opacity: 1; transform: scale(1); }  
-.speaker-card:hover { border-color: var(--gold); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }  
-.speaker-avatar { width: 90px; height: 90px; border-radius: 50%; background: var(--navy3); border: 2px solid rgba(139, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem; }  
-.speaker-name { font-size: 1rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.3rem; }  
-.speaker-title { font-size: 0.82rem; color: var(--gold); font-weight: 500; margin-bottom: 0.3rem; }  
-.speaker-country { font-size: 0.8rem; color: var(--text-muted); }  
-
-#agenda { background: var(--navy); }  
-.agenda-wrapper { max-width: 800px; margin: 0 auto; }  
-.agenda-day { margin-bottom: 2rem; }  
-.day-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }  
-.day-tag { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.9rem; font-weight: 700; }  
-.day-date { font-size: 0.88rem; color: var(--text-muted); }  
-.agenda-item { display: flex; gap: 1rem; padding: 1.2rem 1.5rem; border-radius: 14px; border: 1px solid rgba(139, 0, 0, 0.05); background: #fff; margin-bottom: 0.8rem; transition: all 0.3s ease; opacity: 0; transform: translateX(-20px); }  
-.agenda-item.visible { opacity: 1; transform: translateX(0); }  
-.agenda-item:hover { border-color: var(--gold); background: rgba(139, 0, 0, 0.02); }  
-.agenda-time { min-width: 90px; font-size: 0.82rem; color: var(--gold); font-weight: 600; padding-top: 3px; }  
-.agenda-info h4 { font-size: 0.93rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.2rem; }  
-.agenda-info p { font-size: 0.8rem; color: var(--text-muted); }  
-
-#testimonials { padding: 4rem 2rem; background: rgba(139, 0, 0, 0.03); text-align: center; border-top: 1px solid rgba(0,0,0,0.05); border-bottom: 1px solid rgba(0,0,0,0.05); }  
-.quote-text { font-family: 'Amiri', serif; font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--gold2); line-height: 1.9; max-width: 800px; margin: 0 auto 1rem; }  
-.quote-author { color: var(--gold); font-weight: 600; font-size: 0.95rem; }  
-
-#pricing { background: var(--navy2); }  
-.pricing-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }  
-.pricing-tab { padding: 0.6rem 1.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; border: 1px solid var(--gold); background: transparent; color: var(--gold); transition: all 0.3s ease; }  
-.pricing-tab.active { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border-color: transparent; }  
-.pricing-panel { display: none; }  
-.pricing-panel.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; align-items: start; }  
-.price-card { padding: 2.5rem 2rem; border-radius: 24px; border: 1px solid rgba(139, 0, 0, 0.1); background: #fff; position: relative; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }  
-.price-card.visible { opacity: 1; transform: translateY(0); }  
-.price-card.featured { border-color: var(--gold); background: #fff; box-shadow: 0 15px 40px rgba(139, 0, 0, 0.1); }  
-.featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; padding: 0.3rem 1.2rem; border-radius: 50px; font-size: 0.8rem; font-weight: 800; white-space: nowrap; }  
-.price-amount { font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }  
-.price-features li { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-light); border-bottom: 1px solid rgba(0,0,0,0.05); }  
-.price-features li::before { content: '✓'; color: var(--gold); font-weight: 700; }  
-.price-btn { width: 100%; padding: 0.9rem; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; border: none; }  
-.price-btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; }  
-.price-btn-outline { background: transparent; color: var(--gold2); border: 1px solid var(--gold2); }  
-
-#register { background: var(--navy); }  
-.form-wrapper { max-width: 750px; margin: 0 auto; background: #fff; border: 1px solid rgba(139, 0, 0, 0.1); border-radius: 28px; padding: 3rem; box-shadow: 0 15px 50px rgba(0,0,0,0.05); }  
-.form-group input, .form-group select, .form-group textarea { background: var(--navy); border: 1px solid rgba(0,0,0,0.1); color: var(--gold2); padding: 0.85rem 1.1rem; border-radius: 12px; width: 100%; outline: none; }  
-.form-submit { width: 100%; padding: 1.1rem; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; border: none; border-radius: 14px; font-weight: 800; cursor: pointer; margin-top: 1rem; }  
-
-#prev-editions { background: var(--navy2); }  
-.editions-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }  
-.edition-card { border-radius: 20px; border: 1px solid rgba(139, 0, 0, 0.1); background: #fff; overflow: hidden; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); position: relative; }  
-.edition-card.visible { opacity: 1; transform: translateY(0); }  
-.edition-num { font-size: 4rem; font-weight: 900; color: rgba(139, 0, 0, 0.03); line-height: 1; font-family: 'Amiri', serif; position: absolute; top: 0.5rem; left: 1rem; }  
-.edition-badge { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: #fff; padding: 0.25rem 0.9rem; border-radius: 50px; font-size: 0.78rem; font-weight: 800; margin-bottom: 0.8rem; }  
-.edition-link { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(139, 0, 0, 0.05); border: 1px solid var(--gold); color: var(--gold); padding: 0.55rem 1.2rem; border-radius: 50px; font-size: 0.88rem; font-weight: 600; text-decoration: none; width: 100%; justify-content: center; }  
-
-footer { background: var(--navy2); border-top: 1px solid rgba(139, 0, 0, 0.1); padding: 3rem 2rem; text-align: center; }  
-.footer-logo { font-size: 1.3rem; font-weight: 800; color: var(--gold); margin-bottom: 0.5rem; }  
-.footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; margin: 0 1rem; }  
-.footer-links a:hover { color: var(--gold); }  
+footer { background: var(--navy2); padding: 4rem 2rem; text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
+.footer-copy { font-size: 0.9rem; color: var(--text-muted); margin-top: 2rem; }
 
 @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }  
 @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }  
 </style></head><body>
 
 <nav id="navbar">  
-    <div class="nav-logo">🧠 أكاديمية النخبة الدولية</div>  
+    [span_13](start_span)<div class="nav-logo">🧠 أكاديمية النخبة الدولية</div>[span_13](end_span)
     <a href="#register" class="nav-cta">سجّل الآن</a>
 </nav>
 
 <section id="hero">  
   <div class="hero-bg"></div>    
-  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
-  <div class="particles" id="particles"></div>  
+  <div class="orb orb1"></div>
   <div class="hero-content">    
-    <div class="conference-edition">المؤتمر العربي الخامس — 5th Arab Conference</div>    
-    <h1 class="hero-title">الصحة النفسية<br><span>للأطفال والمراهقين</span></h1>    
-    <p class="hero-subtitle">تمكين الوعي وصناعة المستقبل في عالم متغير</p>    
+    [span_14](start_span)<div class="conference-edition">المؤتمر العربي الخامس — 5th Arab Conference</div>[span_14](end_span)
+    
+    [span_15](start_span)<h1 class="hero-title">الصحة النفسية<br><span>للأطفال والمراهقين</span></h1>[span_15](end_span)
+    
+    [span_16](start_span)<p class="hero-subtitle">تمكين الوعي وصناعة المستقبل في عالم متغير</p>[span_16](end_span)
+    
     <div class="hero-date-location">      
-      <div class="hero-badge">📅 <div><strong>15 – 17 مايو 2026</strong><br><small>ثلاثة أيام علمية حافلة</small></div></div>      
-      <div class="hero-badge">📍 <div><strong>القاهرة، مصر</strong><br><small>حضوري</small></div></div>     
-      <div class="hero-badge">🎓 <div><strong>برعاية وتنظيم</strong><br><small>أكاديمية النخبة الدولية × أكاديمية الخبراء الدولية</small></div></div>    
-    </div>    
+      <div class="hero-badge">
+          <span>📅</span>
+          <div><strong>15 – 17 مايو 2026</strong><small>ثلاثة أيام علمية حافلة</small></div>
+      </div>      
+      <div class="hero-badge">
+          <span>📍</span>
+          <div><strong>القاهرة، مصر</strong><small>حضور مباشر</small></div>
+      </div>     
+    </div>
+
+    <div class="sponsor-badge">
+        <small>برعاية وتنظيم</small>
+        [span_17](start_span)<strong>أكاديمية النخبة الدولية × أكاديمية الخبراء الدولية</strong>[span_17](end_span)
+    </div>
+
     <div class="hero-cta-group">      
       <a href="#register" class="btn-primary">🔖 احجز مقعدك الآن</a>      
-      <a href="#topics" class="btn-secondary">استعرض المحاور</a>    
     </div>  
   </div>  
-  <div class="scroll-indicator"><span>اكتشف</span><div class="scroll-line"></div></div>
 </section>
 
 <section id="stats">  
   <div class="stats-grid">    
-    <div class="stat-card"><div class="stat-number"><span class="count-up" data-target="500">0</span>+</div><div class="stat-label">متخصص ومشارك</div></div>    
-    <div class="stat-card"><div class="stat-number"><span class="count-up" data-target="18">0</span></div><div class="stat-label">متحدث دولي ومحلي</div></div>    
-    <div class="stat-card"><div class="stat-number"><span class="count-up" data-target="12">0</span></div><div class="stat-label">ورشة عمل تخصصية</div></div>    
-    <div class="stat-card"><div class="stat-number"><span class="count-up" data-target="5">0</span></div><div class="stat-label">دورات ناجحة متتالية</div></div>    
-    <div class="stat-card"><div class="stat-number"><span class="count-up" data-target="14">0</span></div><div class="stat-label">دولة عربية مشاركة</div></div>  
-  </div>
-</section>
-
-<section id="why-us">  
-  <div class="section-header">    
-    <div class="section-tag">لماذا نحن؟</div>    
-    <h2 class="section-title">عضلاتنا الأكاديمية بتتكلم<br><span>عن نفسها</span></h2>    
-    <div class="gold-divider"></div>    
-    <p class="section-desc">خمس سنوات من التميز في بناء أكبر تجمع عربي متخصص في الصحة النفسية للأجيال القادمة</p>  
-  </div>  
-  <div class="why-grid">    
-    <div class="why-card"><div class="card-number">01</div><div class="why-card-icon">🏆</div><h3>المرجع الأول عربياً</h3><p>المؤتمر العربي الوحيد المتخصص حصرياً في الصحة النفسية للأطفال والمراهقين منذ خمس سنوات متواصلة.</p></div>    
-    <div class="why-card"><div class="card-number">02</div><div class="why-card-icon">🧪</div><h3>محتوى علمي محكّم</h3><p>كل محتوى المؤتمر يمر بلجنة علمية دولية من أبرز الأكاديميين والمعالجين النفسيين.</p></div>    
-    <div class="why-card"><div class="card-number">03</div><div class="why-card-icon">🌍</div><h3>شبكة تواصل دولية</h3><p>أكثر من 14 دولة عربية تشارك في كل دورة. فرصتك لبناء شبكة علاقات مهنية تستمر طوال مسيرتك.</p></div>    
-    <div class="why-card"><div class="card-number">04</div><div class="why-card-icon">📜</div><h3>شهادات معتمدة دولياً</h3><p>شهادات حضور معتمدة وساعات تدريبية CPD/CME معترف بها في أكثر من 10 دول.</p></div>    
-    <div class="why-card"><div class="card-number">05</div><div class="why-card-icon">🔬</div><h3>ورش عمل تطبيقية</h3><p>12 ورشة عمل تطبيقية عملية تتدرب فيها على أحدث الأدوات والتقنيات العلاجية.</p></div>    
-    <div class="why-card"><div class="card-number">06</div><div class="why-card-icon">💎</div><h3>تجربة استثنائية</h3><p>بيئة احترافية راقية وتنظيم على أعلى مستوى يجعل تجربتك لا تُنسى علمياً واجتماعياً.</p></div>  
-  </div>
-</section>
-
-<section id="topics">  
-  <div class="section-header">    
-    <div class="section-tag">محاور المؤتمر</div>    
-    <h2 class="section-title">المحاور العلمية <span>الستة</span></h2>    
-    <div class="gold-divider"></div>    
-    <p class="section-desc">ستة محاور علمية شاملة تغطي أحدث التطورات في مجال الصحة النفسية للأطفال والمراهقين</p>  
-  </div>  
-  <div class="topics-wrapper">    
-    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الأول:</strong> الابتكار في الممارسة الإكلينيكية — من التشخيص إلى التمكين النفسي</span></div>    
-    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الثاني:</strong> عصر الذكاء الاصطناعي وتأثيره على الأطفال والمراهقين</span></div>    
-    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الثالث:</strong> الحروب والصراعات وتأثيرها على الصحة النفسية — النمو ما بعد الصدمة</span></div>    
-    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الرابع:</strong> الصحة النفسية لطلاب المدارس — استراتيجيات بناء المرونة النفسية</span></div>    
-    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور الخامس:</strong> تحديات التربية في عالم مفتوح — دور الأسرة في عصر العولمة</span></div>    
-    <div class="topic-item"><div class="topic-dot"></div><span><strong>المحور السادس:</strong> علم نفس التدريب التوجيهي (الكوتشينج) وعلم النفس الإيجابي</span></div>  
-  </div>
-</section>
-
-<section id="speakers">  
-  <div class="section-header">    
-    <div class="section-tag">المتحدثون</div>    
-    <h2 class="section-title">نخبة من <span>أبرز الخبراء</span></h2>    
-    <div class="gold-divider"></div>  
-  </div>  
-  <div class="speakers-grid">    
-    <div class="speaker-card"><div class="speaker-avatar">👨‍⚕️</div><div class="speaker-name">د. أحمد محمد السعيد</div><div class="speaker-title">أستاذ الطب النفسي للأطفال</div><div class="speaker-country">🇪🇬 مصر</div></div>    
-    <div class="speaker-card"><div class="speaker-avatar">👩‍⚕️</div><div class="speaker-name">د. نورة العمري</div><div class="speaker-title">رئيس قسم طب نفسي الطفل</div><div class="speaker-country">🇸🇦 السعودية</div></div>    
-    <div class="speaker-card"><div class="speaker-avatar">👨‍🔬</div><div class="speaker-name">Prof. James Carter</div><div class="speaker-title">Child Psychology Expert</div><div class="speaker-country">🇬🇧 بريطانيا</div></div>    
-    <div class="speaker-card"><div class="speaker-avatar">👩‍🏫</div><div class="speaker-name">د. ليلى حداد</div><div class="speaker-title">متخصصة علاج الصدمات</div><div class="speaker-country">🇱🇧 لبنان</div></div>  
-  </div>
-</section>
-
-<section id="agenda">  
-  <div class="section-header">    
-    <div class="section-tag">البرنامج</div>    
-    <h2 class="section-title">برنامج <span>المؤتمر</span></h2>    
-    <div class="gold-divider"></div>  
-  </div>  
-  <div class="agenda-wrapper">    
-    <div class="agenda-day">      
-      <div class="day-header"><span class="day-tag">اليوم الأول</span><span class="day-date">السبت 15 نوفمبر 2025</span></div>      
-      <div class="agenda-item"><div class="agenda-time">9:00 – 10:00</div><div class="agenda-info"><h4>حفل الافتتاح الرسمي</h4><p>كلمة الرئيس الشرفي وتكريم الرواد</p></div></div>      
-      <div class="agenda-item"><div class="agenda-time">10:30 – 12:30</div><div class="agenda-info"><h4>الجلسة العلمية الأولى</h4><p>اضطرابات القلق والاكتئاب لدى الأطفال</p></div></div>    
-    </div>    
-    <div class="agenda-day">      
-      <div class="day-header"><span class="day-tag">اليوم الثاني</span><span class="day-date">الأحد 16 نوفمبر 2025</span></div>      
-      <div class="agenda-item"><div class="agenda-time">9:00 – 11:00</div><div class="agenda-info"><h4>المحاضرة الرئيسية الدولية</h4><p>الذكاء الاصطناعي ومستقبل الصحة النفسية</p></div></div>    
-    </div>  
-  </div>
-</section>
-
-<section id="pricing">  
-  <div class="section-header">    
-    <div class="section-tag">رسوم الاشتراك</div>    
-    <h2 class="section-title">اختر <span>تذكرتك</span></h2>    
-    <div class="gold-divider"></div>  
-  </div>  
-  <div class="pricing-tabs">    
-    <button class="pricing-tab active" onclick="showTab('egyptians', this)">🇪🇬 المصريون</button>    
-    <button class="pricing-tab" onclick="showTab('international', this)">🌍 غير المصريين</button>  
-  </div>  
-  <div class="pricing-panel active" id="tab-egyptians">    
-    <div class="price-card featured">      
-      <div class="featured-badge">⭐ حضور مباشر</div>      
-      <div class="price-card-title">الحضور المباشر</div>      
-      <div class="price-amount"><span class="price-currency">2,350</span></div>      
-      <div class="price-desc">جنيه مصري — للمشارك المصري</div>      
-      <ul class="price-features"><li>حضور الجلسات الثلاثة</li><li>شهادة معتمدة</li><li>مواد رقمية</li></ul>      
-      <button class="price-btn price-btn-gold" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">سجّل الآن</button>    
-    </div>    
-    <div class="price-card">      
-      <div class="price-card-title">الحضور أونلاين</div>      
-      <div class="price-amount"><span class="price-currency">1,300</span></div>      
-      <button class="price-btn price-btn-outline" onclick="document.getElementById('register').scrollIntoView({behavior:'smooth'})">سجّل الآن</button>    
-    </div>  
-  </div>
-</section>
-
-<section id="register">  
-  <div class="section-header">    
-    <div class="section-tag">التسجيل</div>    
-    <h2 class="section-title">سجّل الآن <span>واحجز مقعدك</span></h2>    
-    <div class="gold-divider"></div>  
-  </div>  
-  <div class="form-wrapper">    
-    <div class="embed-placeholder">      
-      <div class="embed-icon">📋</div>      
-      <p>ضع هنا الـ embed code الخاص بالفورم</p>    
-    </div>  
+    [span_18](start_span)<div class="stat-card"><div class="stat-number">500+</div><div class="stat-label">متخصص ومشارك</div></div>[span_18](end_span)
+    [span_19](start_span)<div class="stat-card"><div class="stat-number">18</div><div class="stat-label">متحدث دولي ومحلي</div></div>[span_19](end_span)
+    [span_20](start_span)<div class="stat-card"><div class="stat-number">12</div><div class="stat-label">ورشة عمل تخصصية</div></div>[span_20](end_span)
+    [span_21](start_span)<div class="stat-card"><div class="stat-number">14</div><div class="stat-label">دولة عربية مشاركة</div></div>[span_21](end_span)
   </div>
 </section>
 
 <footer>  
-  <div style="max-width:960px;margin:0 auto;">    
-    <div class="footer-logo">أكاديمية النخبة الدولية & أكاديمية الخبراء الدولية</div>    
-    <div class="footer-tagline">تمكين الوعي وصناعة المستقبل في عالم متغير</div>    
-    <div class="footer-copy">© 2026 المؤتمر العربي الخامس — جميع الحقوق محفوظة</div>  
-  </div>
+  [span_22](start_span)<div class="footer-copy">© 2026 جميع الحقوق محفوظة — المؤتمر العربي الخامس للصحة النفسية</div>[span_22](end_span)
 </footer>
 
 <script>
-window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
-function createParticles() {  
-    const c = document.getElementById('particles'); 
-    for (let i = 0; i < 25; i++) {    
-        const p = document.createElement('div');    
-        p.className = 'particle'; 
-        p.style.cssText = `left:${Math.random()*100}%;width:${Math.random()*3+1}px;height:${Math.random()*3+1}px;animation-duration:${Math.random()*15+8}s;animation-delay:${Math.random()*10}s;`;    
-        c.appendChild(p);  
-    }
-}
-createParticles();
-function showTab(tab, btn) {  
-    document.querySelectorAll('.pricing-panel').forEach(p => p.classList.remove('active'));  
-    document.querySelectorAll('.pricing-tab').forEach(b => b.classList.remove('active'));  
-    const target = document.getElementById('tab-' + tab);
-    if(target) target.classList.add('active');
-    btn.classList.add('active');
-}
-function animateCount(el) {  
-    const target = parseInt(el.getAttribute('data-target'));  
-    let current = 0;  
-    const step = target / 60;
-    const timer = setInterval(() => {    
-        current += step;    
-        if (current >= target) { el.textContent = target; clearInterval(timer); }    
-        else el.textContent = Math.floor(current);  
-    }, 2000/60);
-}
-const io = new IntersectionObserver(entries => {  
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); e.target.querySelectorAll('.count-up').forEach(animateCount); } });
-}, { threshold: 0.15 });
-document.querySelectorAll('.why-card, .topic-item, .speaker-card, .agenda-item, .price-card, .stat-card, .edition-card').forEach((el, i) => {  
-    el.style.transitionDelay = (i % 4) * 0.08 + 's';  
-    io.observe(el);
+window.addEventListener('scroll', () => { 
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); 
 });
-</script></body></html>
+</script>
+</body></html>
