@@ -1,266 +1,214 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المؤتمر العربي الخامس للصحة النفسية - IEAtd</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --maroon: #701515; /* اللون العنابي من الصورة */
-            --cream: #f4f1e9;  /* اللون الكريمي الخلفية */
-            --gold: #c5a059;   /* اللون الذهبي للختم */
-            --dark-text: #2a211c;
-            --white: #ffffff;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المؤتمر العربي الخامس للصحة النفسية للأطفال والمراهقين</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #06101f;
+    --navy2: #0d1e38;
+    --navy3: #122040;
+    --gold: #C9A84C;
+    --gold2: #e8c96b;
+    --gold3: #f0d98a;
+    --cream: #faf6ef;
+    --text-light: #e8e0d0;
+    --text-muted: #9a8f7a;
+  }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Cairo', sans-serif; background-color: var(--cream); color: var(--dark-text); line-height: 1.6; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Cairo', sans-serif; background: var(--navy); color: var(--text-light); direction: rtl; overflow-x: hidden; }
 
-        /* Navigation */
-        nav {
-            background: var(--white);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .logo-placeholder {
-            height: 60px;
-            width: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px dashed var(--maroon); /* مكان اللوجو */
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: var(--maroon);
-            font-weight: 700;
-            margin-right: 20px;
-            padding: 8px 20px;
-            border: 2px solid var(--maroon);
-            border-radius: 5px;
-            transition: 0.3s;
-        }
-        .nav-links a:hover {
-            background: var(--maroon);
-            color: var(--white);
-        }
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 1rem 4rem; display: flex; justify-content: space-between; align-items: center;
+    transition: all 0.4s ease;
+  }
+  nav.scrolled {
+    background: rgba(6, 16, 31, 0.95); backdrop-filter: blur(20px);
+    padding: 0.7rem 4rem; border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  }
+  .nav-logo { font-size: 1.1rem; font-weight: 700; color: var(--gold); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--navy);
+    border: none; padding: 0.6rem 1.8rem; border-radius: 50px; font-family: 'Cairo', sans-serif;
+    font-size: 0.95rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(201, 168, 76, 0.4); }
 
-        /* Hero Section */
-        #hero {
-            padding: 80px 5%;
-            text-align: center;
-            background: linear-gradient(rgba(244, 241, 233, 0.9), rgba(244, 241, 233, 0.9)), url('path-to-your-pattern.png');
-        }
-        .badge {
-            background: var(--maroon);
-            color: var(--white);
-            padding: 10px 30px;
-            display: inline-block;
-            font-size: 1.2rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            transform: skew(-10deg);
-        }
-        .hero-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            color: var(--maroon);
-            margin-bottom: 15px;
-            font-weight: 900;
-        }
-        .collaboration {
-            font-size: 1.2rem;
-            color: var(--gold);
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
+  #hero {
+    min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    position: relative; overflow: hidden; padding: 6rem 2rem 4rem;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 40%, rgba(201,168,76,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 70%, rgba(18,32,64,0.9) 0%, var(--navy) 70%);
+  }
+  
+  .orb { position: absolute; border-radius: 50%; filter: blur(60px); animation: floatOrb 8s ease-in-out infinite; pointer-events: none; }
+  .orb1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%); top: -100px; right: -100px; animation-delay: 0s; }
+  .orb2 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(18,60,120,0.4) 0%, transparent 70%); bottom: 0; left: 10%; animation-delay: -3s; }
+  .orb3 { width: 250px; height: 250px; background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%); top: 40%; left: 30%; animation-delay: -5s; }
+  @keyframes floatOrb { 0%, 100% { transform: translateY(0px) scale(1); } 50% { transform: translateY(-30px) scale(1.05); } }
 
-        /* Certificate Section (Visual Style from Image) */
-        .img-container {
-            max-width: 500px;
-            margin: 40px auto;
-            position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            border: 10px solid var(--white);
-        }
-        .img-container img { width: 100%; display: block; }
+  .particles { position: absolute; inset: 0; pointer-events: none; }
+  .particle { position: absolute; width: 3px; height: 3px; background: var(--gold); border-radius: 50%; opacity: 0; animation: rise linear infinite; }
+  @keyframes rise { 0% { transform: translateY(100vh) scale(0); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.3; } 100% { transform: translateY(-100px) scale(1.5); opacity: 0; } }
 
-        /* Stats & Sections */
-        section { padding: 60px 5%; }
-        .section-title {
-            text-align: center;
-            color: var(--maroon);
-            margin-bottom: 40px;
-            position: relative;
-            font-size: 2rem;
-        }
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background: var(--gold);
-            margin: 10px auto;
-        }
+  .hero-content { position: relative; z-index: 2; text-align: center; max-width: 900px; }
+  .conference-edition {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201, 168, 76, 0.1); border: 1px solid rgba(201, 168, 76, 0.3);
+    padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.9rem; color: var(--gold2);
+    margin-bottom: 1.5rem; animation: fadeInDown 0.8s ease forwards; opacity: 0;
+  }
+  .conference-edition::before { content: ''; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .card {
-            background: var(--white);
-            padding: 30px;
-            border-bottom: 4px solid var(--gold);
-            transition: 0.3s;
-            text-align: center;
-        }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(112, 21, 21, 0.1); }
-        .card h3 { color: var(--maroon); margin-bottom: 15px; }
+  .hero-title { font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 900; line-height: 1.2; margin-bottom: 0.5rem; animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0; }
+  .hero-title span { background: linear-gradient(135deg, var(--gold), var(--gold3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-subtitle { font-family: 'Amiri', serif; font-size: clamp(1.1rem, 2.5vw, 1.6rem); color: var(--text-muted); margin-bottom: 2rem; animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0; }
 
-        /* Pricing (Maroon Style) */
-        .price-card {
-            background: var(--maroon);
-            color: var(--white);
-            padding: 40px;
-            border-radius: 15px;
-            text-align: center;
-        }
-        .price-card.alt {
-            background: var(--white);
-            color: var(--maroon);
-            border: 2px solid var(--maroon);
-        }
-        .price-val { font-size: 3rem; font-weight: 900; display: block; color: var(--gold); }
+  .hero-date-location { display: flex; justify-content: center; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0; }
+  .hero-badge { display: flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2); padding: 0.7rem 1.3rem; border-radius: 12px; font-size: 0.95rem; font-weight: 600; }
+  .hero-badge strong { color: var(--gold2); }
 
-        /* Form Placeholder */
-        .form-box {
-            background: var(--white);
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px;
-            border: 1px solid #ddd;
-        }
+  .hero-cta-group { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0; }
+  .btn-primary { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--navy); border: none; padding: 1rem 2.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(201,168,76,0.4); }
+  .btn-secondary { background: transparent; color: var(--gold2); border: 2px solid rgba(201,168,76,0.4); padding: 1rem 2.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 1.05rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; text-decoration: none; display: inline-block; }
+  .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.1); transform: translateY(-3px); }
 
-        /* Footer */
-        footer {
-            background: var(--maroon);
-            color: var(--white);
-            padding: 60px 5% 20px;
-            text-align: center;
-        }
-        .footer-logo { font-size: 1.5rem; font-weight: 900; color: var(--gold); margin-bottom: 20px; }
-        .contact-info { margin: 20px 0; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
-        .contact-info a { color: var(--cream); text-decoration: none; font-weight: 600; }
-        .copy { margin-top: 40px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+  .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.3rem; opacity: 0.5; animation: bounce 2s ease-in-out infinite; }
+  .scroll-indicator span { font-size: 0.75rem; color: var(--gold); letter-spacing: 2px; }
+  .scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); }
+  @keyframes bounce { 0%, 100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
 
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-        }
-    </style>
-</head>
-<body>
+  #stats { padding: 4rem 2rem; background: linear-gradient(to bottom, var(--navy), var(--navy2)); }
+  .stats-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1.5rem; }
+  .stat-card { text-align: center; padding: 2rem 1rem; border-radius: 20px; border: 1px solid rgba(201,168,76,0.15); background: rgba(255,255,255,0.03); transition: all 0.4s ease; position: relative; overflow: hidden; }
+  .stat-card:hover { transform: translateY(-5px); border-color: rgba(201,168,76,0.4); }
+  .stat-number { font-size: 3rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
+  .stat-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
 
-<nav>
-    <div class="logo-placeholder">
-        <img src="logo.png" alt="IEAtd Logo" style="max-height: 50px;">
-    </div>
-    <div class="nav-links">
-        <a href="#register">سجّل الآن</a>
-    </div>
-</nav>
+  section { padding: 6rem 2rem; }
+  .section-tag { display: inline-block; background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.25); color: var(--gold2); padding: 0.3rem 1rem; border-radius: 50px; font-size: 0.85rem; font-weight: 600; margin-bottom: 1rem; }
+  .section-title { font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 800; line-height: 1.3; margin-bottom: 1rem; }
+  .section-title span { color: var(--gold); }
+  .section-desc { font-size: 1.05rem; color: var(--text-muted); max-width: 600px; line-height: 1.8; }
+  .section-header { text-align: center; margin-bottom: 3.5rem; }
+  .section-header .section-desc { margin: 0 auto; }
+  .gold-divider { width: 60px; height: 3px; background: linear-gradient(to right, var(--gold), var(--gold2)); border-radius: 2px; margin: 1rem auto; }
 
-<section id="hero">
-    <div class="badge">المؤتمر العربي الخامس 2026</div>
-    <h1 class="hero-title">الصحة النفسية للأطفال والمراهقين</h1>
-    <p class="collaboration">بالتعاون مع أكاديمية الخبراء الدولية</p>
-    
-    <div class="img-container">
-        <img src="1000045600.jpg" alt="لماذا الشهادة المعتمدة مهمة">
-    </div>
+  #why-us { background: var(--navy2); position: relative; overflow: hidden; }
+  #why-us::before { content: ''; position: absolute; top: -200px; left: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 70%); pointer-events: none; }
+  .why-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .why-card { padding: 2rem; border-radius: 20px; border: 1px solid rgba(201,168,76,0.1); background: rgba(255,255,255,0.02); position: relative; overflow: hidden; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }
+  .why-card.visible { opacity: 1; transform: translateY(0); }
+  .why-card:hover { border-color: rgba(201,168,76,0.35); background: rgba(255,255,255,0.04); transform: translateY(-5px); }
+  .why-card-icon { width: 60px; height: 60px; border-radius: 16px; background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.05)); border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; font-size: 1.6rem; margin-bottom: 1.2rem; }
+  .why-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--cream); margin-bottom: 0.7rem; }
+  .why-card p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.8; }
+  .card-number { position: absolute; top: 1rem; left: 1.5rem; font-size: 4rem; font-weight: 900; color: rgba(201,168,76,0.05); line-height: 1; font-family: 'Amiri', serif; }
 
-    <p style="max-width: 700px; margin: 0 auto; font-size: 1.2rem;">
-        انضم إلينا في أكبر تكتل علمي عربي لمناقشة قضايا الوعي النفسي وصناعة مستقبل أجيالنا.
-    </p>
-</section>
+  #topics { background: var(--navy); }
+  .topics-wrapper { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; }
+  .topic-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.4rem; border-radius: 16px; border: 1px solid rgba(201,168,76,0.1); background: rgba(255,255,255,0.02); transition: all 0.3s ease; opacity: 0; transform: translateX(20px); }
+  .topic-item.visible { opacity: 1; transform: translateX(0); }
+  .topic-item:hover { border-color: rgba(201,168,76,0.3); background: rgba(201,168,76,0.05); }
+  .topic-dot { min-width: 10px; height: 10px; border-radius: 50%; background: var(--gold); margin-top: 5px; }
+  .topic-item span { font-size: 0.93rem; font-weight: 600; color: var(--text-light); line-height: 1.5; }
 
-<section id="features">
-    <h2 class="section-title">لماذا تشارك معنا؟</h2>
-    <div class="grid">
-        <div class="card">
-            <h3>شهادات معتمدة</h3>
-            <p>توثيق رسمي من أكاديمية النخبة الدولية يعزز مسارك المهني في عام 2026.</p>
-        </div>
-        <div class="card">
-            <h3>نخبة الخبراء</h3>
-            <p>لقاء مباشر مع قادة الفكر النفسي في الوطن العربي وأوروبا.</p>
-        </div>
-        <div class="card">
-            <h3>محتوى تطبيقي</h3>
-            <p>ورش عمل تركز على الحلول العملية لا النظريات فقط.</p>
-        </div>
-    </div>
-</section>
+  #speakers { background: var(--navy2); }
+  .speakers-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; }
+  .speaker-card { padding: 2rem 1.5rem; border-radius: 20px; border: 1px solid rgba(201,168,76,0.1); background: rgba(255,255,255,0.02); text-align: center; transition: all 0.4s ease; opacity: 0; transform: scale(0.95); }
+  .speaker-card.visible { opacity: 1; transform: scale(1); }
+  .speaker-card:hover { border-color: rgba(201,168,76,0.35); background: rgba(255,255,255,0.05); transform: translateY(-8px); }
+  .speaker-avatar { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, var(--navy3), var(--navy2)); border: 2px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1rem; }
+  .speaker-name { font-size: 1rem; font-weight: 700; color: var(--cream); margin-bottom: 0.3rem; }
+  .speaker-title { font-size: 0.82rem; color: var(--gold2); font-weight: 500; margin-bottom: 0.3rem; }
+  .speaker-country { font-size: 0.8rem; color: var(--text-muted); }
 
-<section id="pricing" style="background: #fff;">
-    <h2 class="section-title">رسوم الاستثمار</h2>
-    <div class="grid" style="max-width: 1000px; margin: 0 auto;">
-        <div class="price-card">
-            <h3>المصريين</h3>
-            <span class="price-val">2350</span>
-            <p>جنيه مصري</p>
-            <hr style="margin: 20px 0; opacity: 0.2;">
-            <ul style="list-style: none; text-align: right; font-size: 0.9rem;">
-                <li>✓ حضور كافة الجلسات</li>
-                <li>✓ الشهادة المعتمدة</li>
-                <li>✓ الحقيبة العلمية</li>
-            </ul>
-        </div>
-        <div class="price-card alt">
-            <h3>الدوليين</h3>
-            <span class="price-val">$150</span>
-            <p>دولار أمريكي</p>
-            <hr style="margin: 20px 0; opacity: 0.2;">
-            <ul style="list-style: none; text-align: right; font-size: 0.9rem;">
-                <li>✓ حضور (حضوري أو أونلاين)</li>
-                <li>✓ الشهادة المعتمدة</li>
-                <li>✓ إرسال الشهادة بالبريد الدولي</li>
-            </ul>
-        </div>
-    </div>
-</section>
+  #agenda { background: var(--navy); }
+  .agenda-wrapper { max-width: 800px; margin: 0 auto; }
+  .agenda-day { margin-bottom: 2rem; }
+  .day-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.2rem; }
+  .day-tag { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--navy); padding: 0.4rem 1.2rem; border-radius: 50px; font-size: 0.9rem; font-weight: 700; }
+  .day-date { font-size: 0.88rem; color: var(--text-muted); }
+  .agenda-item { display: flex; gap: 1rem; padding: 1.2rem 1.5rem; border-radius: 14px; border: 1px solid rgba(201,168,76,0.08); background: rgba(255,255,255,0.02); margin-bottom: 0.8rem; transition: all 0.3s ease; opacity: 0; transform: translateX(-20px); }
+  .agenda-item.visible { opacity: 1; transform: translateX(0); }
+  .agenda-item:hover { border-color: rgba(201,168,76,0.25); background: rgba(255,255,255,0.04); }
+  .agenda-time { min-width: 90px; font-size: 0.82rem; color: var(--gold2); font-weight: 600; padding-top: 3px; }
+  .agenda-info h4 { font-size: 0.93rem; font-weight: 700; color: var(--cream); margin-bottom: 0.2rem; }
+  .agenda-info p { font-size: 0.8rem; color: var(--text-muted); }
 
-<section id="register">
-    <h2 class="section-title">نموذج التسجيل</h2>
-    <div class="form-box">
-        <p style="text-align: center; color: #666;">[ هنا يتم وضع كود Form التسجيل الخاص بـ IEAtd ]</p>
-    </div>
-</section>
+  #testimonials { padding: 4rem 2rem; background: linear-gradient(135deg, rgba(201,168,76,0.06), transparent); border-top: 1px solid rgba(201,168,76,0.1); border-bottom: 1px solid rgba(201,168,76,0.1); text-align: center; }
+  .quote-text { font-family: 'Amiri', serif; font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--cream); line-height: 1.9; max-width: 800px; margin: 0 auto 1rem; }
+  .quote-author { color: var(--gold2); font-weight: 600; font-size: 0.95rem; }
 
-<footer>
-    <div class="footer-logo">أكاديمية النخبة الدولية (IEAtd)</div>
-    <p>شريكك في التنمية والتدريب الاحترافي</p>
-    
-    <div class="contact-info">
-        <a href="https://ieatd.com">🌐 www.ieatd.com</a>
-        <a href="mailto:info@ieatd.com">📧 info@ieatd.com</a>
-        <a href="tel:+201034837427">📞 +201034837427</a>
-    </div>
+  #pricing { background: var(--navy2); }
+  .pricing-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; align-items: start; }
+  .price-card { padding: 2.5rem 2rem; border-radius: 24px; border: 1px solid rgba(201,168,76,0.15); background: rgba(255,255,255,0.02); position: relative; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }
+  .price-card.visible { opacity: 1; transform: translateY(0); }
+  .price-card.featured { border-color: var(--gold); background: rgba(201,168,76,0.06); }
+  .price-card:hover:not(.featured) { border-color: rgba(201,168,76,0.3); transform: translateY(-5px); }
+  .featured-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--navy); padding: 0.3rem 1.2rem; border-radius: 50px; font-size: 0.8rem; font-weight: 800; white-space: nowrap; }
+  .price-card-title { font-size: 1.05rem; font-weight: 700; color: var(--cream); margin-bottom: 1rem; }
+  .price-amount { font-size: 2.5rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 0.3rem; }
+  .price-currency { font-size: 1rem; font-weight: 600; }
+  .price-desc { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .price-features { list-style: none; margin-bottom: 2rem; }
+  .price-features li { display: flex; align-items: center; gap: 0.6rem; padding: 0.5rem 0; font-size: 0.88rem; color: var(--text-light); border-bottom: 1px solid rgba(255,255,255,0.04); }
+  .price-features li::before { content: '✓'; color: var(--gold); font-weight: 700; }
+  .price-btn { width: 100%; padding: 0.9rem; border-radius: 12px; font-family: 'Cairo', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; border: none; }
+  .price-btn-gold { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--navy); }
+  .price-btn-gold:hover { box-shadow: 0 10px 30px rgba(201,168,76,0.4); transform: translateY(-2px); }
+  .price-btn-outline { background: transparent; color: var(--gold2); border: 1px solid rgba(201,168,76,0.4); }
+  .price-btn-outline:hover { background: rgba(201,168,76,0.1); }
 
-    <div class="contact-info" style="font-size: 0.9rem; opacity: 0.8;">
-        <span>بالتعاون مع: أكاديمية الخبراء الدولية</span>
-    </div>
+  #register { background: var(--navy); position: relative; overflow: hidden; }
+  #register::before { content: ''; position: absolute; top: 0; right: -200px; width: 600px; height: 600px; background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%); pointer-events: none; }
+  .form-wrapper { max-width: 750px; margin: 0 auto; background: rgba(255,255,255,0.03); border: 1px solid rgba(201,168,76,0.15); border-radius: 28px; padding: 3rem; position: relative; }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem; }
+  @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } nav { padding: 1rem 1.5rem; } nav.scrolled { padding: 0.7rem 1.5rem; } .form-wrapper { padding: 2rem 1.5rem; } .hero-date-location { flex-direction: column; align-items: center; } }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-group.full { grid-column: 1 / -1; }
+  .form-group label { font-size: 0.9rem; font-weight: 600; color: var(--text-light); }
+  .form-group label span { color: var(--gold); }
+  .form-group input, .form-group select, .form-group textarea { background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.15); border-radius: 12px; padding: 0.85rem 1.1rem; font-family: 'Cairo', sans-serif; font-size: 0.95rem; color: var(--cream); transition: all 0.3s ease; outline: none; direction: rtl; width: 100%; }
+  .form-group select option { background: var(--navy2); color: var(--cream); }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); background: rgba(201,168,76,0.05); box-shadow: 0 0 0 3px rgba(201,168,76,0.1); }
+  .form-group input::placeholder, .form-group textarea::placeholder { color: rgba(154,143,122,0.5); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .form-submit { width: 100%; padding: 1.1rem; background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--navy); border: none; border-radius: 14px; font-family: 'Cairo', sans-serif; font-size: 1.1rem; font-weight: 800; cursor: pointer; transition: all 0.3s ease; margin-top: 0.5rem; }
+  .form-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(201,168,76,0.4); }
+  .form-note { text-align: center; font-size: 0.8rem; color: var(--text-muted); margin-top: 1rem; }
+  .form-note strong { color: var(--gold2); }
+  .success-msg { display: none; text-align: center; padding: 2rem; }
+  .success-msg .check { font-size: 3rem; margin-bottom: 1rem; animation: popIn 0.5s ease; }
+  .success-msg h3 { font-size: 1.5rem; color: var(--gold); margin-bottom: 0.5rem; }
+  .success-msg p { color: var(--text-muted); line-height: 1.8; }
+  @keyframes popIn { 0% { transform: scale(0); } 80% { transform: scale(1.2); } 100% { transform: scale(1); } }
 
-    <div class="copy">
-        &copy; 2026 جميع الحقوق محفوظة لأكاديمية النخبة الدولية للتدريب والتنمية.
-    </div>
-</footer>
+  footer { background: var(--navy2); border-top: 1px solid rgba(201,168,76,0.1); padding: 3rem 2rem; text-align: center; }
+  .footer-logo { font-size: 1.3rem; font-weight: 800; color: var(--gold); margin-bottom: 0.5rem; }
+  .footer-tagline { font-family: 'Amiri', serif; font-size: 1rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+  .footer-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 0.8rem; color: rgba(154,143,122,0.4); }
 
-</body>
-</html>
+  @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ===== PRICING TABS ===== */
+  .pricing-tabs { display: flex; justify-content: center; gap: 0.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+  .pricing-tab { padding: 0.6rem 1.5rem; border-radius: 50px; font-family: 'Cairo', sans-serif; font-size: 0.95rem; font-weight: 700; cursor: pointer; border: 1px solid rgba(201,168,76,0.3); background: transparent; color: var(--text-muted); transition: all 0.3s ease; }
+  .pricing-tab.active { background: linear-gradient(135deg, var(--gold), var(--gold2)); color: var(--navy); border-color: transparent; }
+  .pricing-tab:hover:not(.active) { border-color: var(--gold); color: var(--gold2); }
+  .pricing-panel { display: none; }
+  .pricing-panel.active { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 au
