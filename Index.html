@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المؤتمر العربي الخامس للصحة النفسية - IEAtd</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --maroon: #701515; /* اللون العنابي من الصورة */
+            --cream: #f4f1e9;  /* اللون الكريمي الخلفية */
+            --gold: #c5a059;   /* اللون الذهبي للختم */
+            --dark-text: #2a211c;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Cairo', sans-serif; background-color: var(--cream); color: var(--dark-text); line-height: 1.6; }
+
+        /* Navigation */
+        nav {
+            background: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .logo-placeholder {
+            height: 60px;
+            width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px dashed var(--maroon); /* مكان اللوجو */
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--maroon);
+            font-weight: 700;
+            margin-right: 20px;
+            padding: 8px 20px;
+            border: 2px solid var(--maroon);
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background: var(--maroon);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        #hero {
+            padding: 80px 5%;
+            text-align: center;
+            background: linear-gradient(rgba(244, 241, 233, 0.9), rgba(244, 241, 233, 0.9)), url('path-to-your-pattern.png');
+        }
+        .badge {
+            background: var(--maroon);
+            color: var(--white);
+            padding: 10px 30px;
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            transform: skew(-10deg);
+        }
+        .hero-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: var(--maroon);
+            margin-bottom: 15px;
+            font-weight: 900;
+        }
+        .collaboration {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 30px;
+        }
+
+        /* Certificate Section (Visual Style from Image) */
+        .img-container {
+            max-width: 500px;
+            margin: 40px auto;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border: 10px solid var(--white);
+        }
+        .img-container img { width: 100%; display: block; }
+
+        /* Stats & Sections */
+        section { padding: 60px 5%; }
+        .section-title {
+            text-align: center;
+            color: var(--maroon);
+            margin-bottom: 40px;
+            position: relative;
+            font-size: 2rem;
+        }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            margin: 10px auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .card {
+            background: var(--white);
+            padding: 30px;
+            border-bottom: 4px solid var(--gold);
+            transition: 0.3s;
+            text-align: center;
+        }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(112, 21, 21, 0.1); }
+        .card h3 { color: var(--maroon); margin-bottom: 15px; }
+
+        /* Pricing (Maroon Style) */
+        .price-card {
+            background: var(--maroon);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .price-card.alt {
+            background: var(--white);
+            color: var(--maroon);
+            border: 2px solid var(--maroon);
+        }
+        .price-val { font-size: 3rem; font-weight: 900; display: block; color: var(--gold); }
+
+        /* Form Placeholder */
+        .form-box {
+            background: var(--white);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            border: 1px solid #ddd;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--maroon);
+            color: var(--white);
+            padding: 60px 5% 20px;
+            text-align: center;
+        }
+        .footer-logo { font-size: 1.5rem; font-weight: 900; color: var(--gold); margin-bottom: 20px; }
+        .contact-info { margin: 20px 0; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .contact-info a { color: var(--cream); text-decoration: none; font-weight: 600; }
+        .copy { margin-top: 40px; font-size: 0.8rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo-placeholder">
+        <img src="logo.png" alt="IEAtd Logo" style="max-height: 50px;">
+    </div>
+    <div class="nav-links">
+        <a href="#register">سجّل الآن</a>
+    </div>
+</nav>
+
+<section id="hero">
+    <div class="badge">المؤتمر العربي الخامس 2026</div>
+    <h1 class="hero-title">الصحة النفسية للأطفال والمراهقين</h1>
+    <p class="collaboration">بالتعاون مع أكاديمية الخبراء الدولية</p>
+    
+    <div class="img-container">
+        <img src="1000045600.jpg" alt="لماذا الشهادة المعتمدة مهمة">
+    </div>
+
+    <p style="max-width: 700px; margin: 0 auto; font-size: 1.2rem;">
+        انضم إلينا في أكبر تكتل علمي عربي لمناقشة قضايا الوعي النفسي وصناعة مستقبل أجيالنا.
+    </p>
+</section>
+
+<section id="features">
+    <h2 class="section-title">لماذا تشارك معنا؟</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>شهادات معتمدة</h3>
+            <p>توثيق رسمي من أكاديمية النخبة الدولية يعزز مسارك المهني في عام 2026.</p>
+        </div>
+        <div class="card">
+            <h3>نخبة الخبراء</h3>
+            <p>لقاء مباشر مع قادة الفكر النفسي في الوطن العربي وأوروبا.</p>
+        </div>
+        <div class="card">
+            <h3>محتوى تطبيقي</h3>
+            <p>ورش عمل تركز على الحلول العملية لا النظريات فقط.</p>
+        </div>
+    </div>
+</section>
+
+<section id="pricing" style="background: #fff;">
+    <h2 class="section-title">رسوم الاستثمار</h2>
+    <div class="grid" style="max-width: 1000px; margin: 0 auto;">
+        <div class="price-card">
+            <h3>المصريين</h3>
+            <span class="price-val">2350</span>
+            <p>جنيه مصري</p>
+            <hr style="margin: 20px 0; opacity: 0.2;">
+            <ul style="list-style: none; text-align: right; font-size: 0.9rem;">
+                <li>✓ حضور كافة الجلسات</li>
+                <li>✓ الشهادة المعتمدة</li>
+                <li>✓ الحقيبة العلمية</li>
+            </ul>
+        </div>
+        <div class="price-card alt">
+            <h3>الدوليين</h3>
+            <span class="price-val">$150</span>
+            <p>دولار أمريكي</p>
+            <hr style="margin: 20px 0; opacity: 0.2;">
+            <ul style="list-style: none; text-align: right; font-size: 0.9rem;">
+                <li>✓ حضور (حضوري أو أونلاين)</li>
+                <li>✓ الشهادة المعتمدة</li>
+                <li>✓ إرسال الشهادة بالبريد الدولي</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="register">
+    <h2 class="section-title">نموذج التسجيل</h2>
+    <div class="form-box">
+        <p style="text-align: center; color: #666;">[ هنا يتم وضع كود Form التسجيل الخاص بـ IEAtd ]</p>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-logo">أكاديمية النخبة الدولية (IEAtd)</div>
+    <p>شريكك في التنمية والتدريب الاحترافي</p>
+    
+    <div class="contact-info">
+        <a href="https://ieatd.com">🌐 www.ieatd.com</a>
+        <a href="mailto:info@ieatd.com">📧 info@ieatd.com</a>
+        <a href="tel:+201034837427">📞 +201034837427</a>
+    </div>
+
+    <div class="contact-info" style="font-size: 0.9rem; opacity: 0.8;">
+        <span>بالتعاون مع: أكاديمية الخبراء الدولية</span>
+    </div>
+
+    <div class="copy">
+        &copy; 2026 جميع الحقوق محفوظة لأكاديمية النخبة الدولية للتدريب والتنمية.
+    </div>
+</footer>
+
+</body>
+</html>
