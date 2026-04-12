@@ -98,7 +98,7 @@ section { padding: 7rem 2rem; }
 .speaker-card:hover { border-color: var(--gold); transform: translateY(-8px); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }  
 .speaker-avatar { width: 90px; height: 90px; border-radius: 50%; background: var(--navy3); border: 2px solid rgba(139, 0, 0, 0.1); display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 1.2rem; }  
 .speaker-name { font-size: 1.05rem; font-weight: 700; color: var(--gold2); margin-bottom: 0.4rem; }  
-.speaker-title { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 0.4rem; }  
+.speaker-title { font-size: 0.85rem; color: var(--gold); font-weight: 500; margin-bottom: 0.4rem; line-height: 1.4; }  
 .speaker-country { font-size: 0.85rem; color: var(--text-muted); }  
 
 #agenda { background: var(--navy); }  
@@ -158,10 +158,6 @@ section { padding: 7rem 2rem; }
 .form-submit:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(139, 0, 0, 0.3); }  
 
 .embed-wrapper { max-width: 800px; margin: 0 auto; background: #fff; border: 1px solid rgba(0,0,0,0.05); border-radius: 28px; padding: 1rem; min-height: 400px; box-shadow: 0 15px 50px rgba(0,0,0,0.03); }  
-.embed-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 300px; gap: 1rem; text-align: center; padding: 3rem; }  
-.embed-placeholder .embed-icon { font-size: 3rem; opacity: 0.5; color: var(--gold); }  
-.embed-placeholder p { color: var(--text-muted); font-size: 1rem; line-height: 1.7; }  
-.embed-placeholder code { background: rgba(139, 0, 0, 0.05); border: 1px solid rgba(139, 0, 0, 0.1); color: var(--gold); padding: 0.2rem 0.6rem; border-radius: 6px; font-size: 0.85rem; direction: ltr; }  
 
 #prev-editions { background: var(--navy2); }  
 .editions-grid { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }  
@@ -282,9 +278,9 @@ footer { background: var(--navy2); border-top: 1px solid rgba(0,0,0,0.05); paddi
     <p class="section-desc">متحدثون دوليون ومحليون من أعلى الكفاءات في مجال الصحة النفسية</p>  
   </div>  
   <div class="speakers-grid">    
-    <div class="speaker-card"><div class="speaker-avatar">👨‍⚕️</div><div class="speaker-name">د. أحمد محمد السعيد</div><div class="speaker-title">أستاذ الطب النفسي للأطفال</div><div class="speaker-country">🇪🇬 مصر</div></div>    
-    <div class="speaker-card"><div class="speaker-avatar">👩‍⚕️</div><div class="speaker-name">د. نورة العمري</div><div class="speaker-title">رئيس قسم طب نفسي الطفل</div><div class="speaker-country">🇸🇦 المملكة العربية السعودية</div></div>    
-    <div class="speaker-card"><div class="speaker-avatar">👨‍🔬</div><div class="speaker-name">Prof. James Carter</div><div class="speaker-title">Child Psychology Expert</div><div class="speaker-country">🇬🇧 المملكة المتحدة</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👨‍⚕️</div><div class="speaker-name">أ.د. أحمد خيري حافظ</div><div class="speaker-title">أستاذ علم النفس الإكلينيكي<br>جامعة عين شمس</div><div class="speaker-country">🇪🇬 مصر</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👨‍⚕️</div><div class="speaker-name">أ.د. طارق محمد عبد الوهاب</div><div class="speaker-title">أستاذ علم النفس والعميد السابق لكلية الآداب<br>جامعة الفيوم</div><div class="speaker-country">🇪🇬 مصر</div></div>    
+    <div class="speaker-card"><div class="speaker-avatar">👨‍⚕️</div><div class="speaker-name">أ.د. محمد السعيد أبو حلاوة</div><div class="speaker-title">أستاذ الصحة النفسية<br>جامعة دمنهور</div><div class="speaker-country">🇪🇬 مصر</div></div>    
     <div class="speaker-card"><div class="speaker-avatar">👩‍🏫</div><div class="speaker-name">د. ليلى حداد</div><div class="speaker-title">متخصصة علاج الصدمات</div><div class="speaker-country">🇱🇧 لبنان</div></div>    
     <div class="speaker-card"><div class="speaker-avatar">🧑‍⚕️</div><div class="speaker-name">د. محمد الرشيدي</div><div class="speaker-title">خبير اضطرابات النمو</div><div class="speaker-country">🇰🇼 الكويت</div></div>    
     <div class="speaker-card"><div class="speaker-avatar">👩‍🔬</div><div class="speaker-name">Dr. Sarah Mitchell</div><div class="speaker-title">Adolescent Mental Health</div><div class="speaker-country">🇺🇸 الولايات المتحدة</div></div>  
